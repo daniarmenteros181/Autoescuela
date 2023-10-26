@@ -1,6 +1,29 @@
 <?php
 
+require_once "../helpers/sesion.php";
+require_once "../helpers/login.php";
 
+
+
+iniciaSesion();
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    $nombreUsuario = $_POST["nombre"];
+    $contra = $_POST["contra"];
+
+    login($nombreUsuario,$contra);
+
+    if(isset($_POST["registro"])){
+      //  header('Location: http://localhost/Autoescuela/formularios/registro.php?');
+        header('Location: http://autoescueladaniels.com/formularios/registro.php?');
+
+
+
+    }
+    
+}
 
 
 ?>
