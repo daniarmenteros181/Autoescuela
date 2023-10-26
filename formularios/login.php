@@ -16,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     login($nombreUsuario,$contra);
 
     if(isset($_POST["registro"])){
-      //  header('Location: http://localhost/Autoescuela/formularios/registro.php?');
         header('Location: http://autoescueladaniels.com/formularios/registro.php?');
 
 
