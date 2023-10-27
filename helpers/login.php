@@ -1,6 +1,9 @@
 <?php
 
 require_once "../repositorio/db.php";
+require_once "sesion.php";
+require_once "../entidades/usuario.php";
+
 
 #esta logueado(le pregunta a sesion si tiene clave que se llama users)
 function estarLogeado(){
@@ -34,7 +37,7 @@ function existeUsuario($nombre, $contra) {
     // Verificar si se encontró un usuario con ese nombre y contraseña
     if ($usuario) {
         // Iniciar la sesión si es necesario
-        // iniciaSesion();
+         iniciaSesion();
 
         return true;
     }
@@ -53,20 +56,19 @@ function existeUsuario($nombre, $contra) {
     return false;
 }
 
-
-
-
 #logIn
 function login($nombre,$contra){
     if (isset($_POST["entrar"])) {
 
-        
-
-
-
         if (existeUsuario($nombre, $contra)) {
             // Las credenciales son correctas, establecer la sesión y redirigir
-            header('Location: http://autoescueladaniels.com/formularios/registro.php?');
+
+            // Las credenciales son correctas, establecer la sesión y redirigir
+            //guardaSesion('nombreUsuario',crearUsuario());    
+
+            header('Location: http://autoescueladaniels.com/formularios/alumnoMenu.php?'. $nombreUsuario);
+
+
 
 
         } else {
@@ -80,7 +82,7 @@ function login($nombre,$contra){
 
 function crearUsuario(){
 
-    return new Usuario($nombreUsuario,$contra,"users");
+    return new Usuario($nombreUsuario,$contra);
  
 
 }

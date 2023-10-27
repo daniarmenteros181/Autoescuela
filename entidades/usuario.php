@@ -1,10 +1,10 @@
 <?php
 
 class Usuario {
-    private $id;
-    private $nombre;
-    private $contrasenia;
-    private $rol;
+    public $id;
+    public $nombre;
+    public $contrasenia;
+    public $rol;
 
     public function __construct($id, $nombre, $contrasenia, $rol) {
         $this->id = $id;
