@@ -31,13 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Formulario</title>
+    <title>Inicio Sesion </title>
 </head>
 <body>
-    <h1>Formulario</h1>
+    <h1>Inicio Sesion</h1>
     <form id="miFormulario" method="post" action="login.php">
 
-        <label for="nombre">Nombre:</label>
+        <label for="nombre">Usuario:</label>
         <input type="text" id="nombre" name="nombre"><br><br>
 
         <label for="contra">Contraseña:</label>
@@ -46,8 +46,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
 
         <input type="submit" value="Entrar" name="entrar">
+        <br>
 
         <input type="submit" value="Registro" name="registro">
+
+        <br>
+
+        <a href="">¿Has olvidado tu contraseña?</a>
 
         
     </form>
