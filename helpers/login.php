@@ -62,8 +62,6 @@ function login($nombreUsuario,$contra){
 
         if (existeUsuario($nombreUsuario, $contra)) {
             // Las credenciales son correctas, establecer la sesión y redirigir
-
-            // Las credenciales son correctas, establecer la sesión y redirigir
             guardaSesion('nombreUsuario',crearUsuario());    
 
             header('Location: http://autoescueladaniels.com/formularios/alumnoMenu.php?'. $nombreUsuario);

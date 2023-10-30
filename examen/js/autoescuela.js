@@ -25,7 +25,7 @@ window.addEventListener("load",function(){
                         pregAux.getElementsByClassName("res2")[0].innerHTML=y.examen[0].pregunta[i].respuesta[i].res2;
                         pregAux.getElementsByClassName("res3")[0].innerHTML=y.examen[0].pregunta[i].respuesta[i].res3;
 
-
+                      
 
 
                       
