@@ -1,6 +1,18 @@
 <?php
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    
 
+
+   
+    if(isset($_POST["login"])){
+        header('Location: http://autoescueladaniels.com/formularios/login.php?');
+
+
+    }
+    
+}
 
 
 ?>
@@ -10,6 +22,8 @@
 <html>
 <head>
     <title>Recuperar Contraseña </title>
+    <link rel="stylesheet" href="../estilos/estilosLogin.css">
+
 </head>
 <body>
     <h1>Recuperar Contraseña </h1>
@@ -20,6 +34,9 @@
 
         
         <input type="submit" value="Enviar" name="enviar">
+
+        <input type="submit" value="Login" name="login">
+
 
 
 

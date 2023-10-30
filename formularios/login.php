@@ -21,6 +21,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     }
+    if(isset($_POST["olvido"])){
+        header('Location: http://autoescueladaniels.com/formularios/recuperarContrasenia.php?');
+
+
+    }
     
 }
 
@@ -32,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Inicio Sesion </title>
+    <link rel="stylesheet" href="../estilos/estilosLogin.css">
 </head>
 <body>
     <h1>Inicio Sesion</h1>
@@ -51,8 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" value="Registro" name="registro">
 
         <br>
+        <input type="submit" value="¿Has olvidado tu contraseña?" name="olvido">
 
-        <a href="">¿Has olvidado tu contraseña?</a>
 
         
     </form>
