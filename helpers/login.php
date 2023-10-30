@@ -18,7 +18,7 @@ function estarLogeado(){
 }
 
 // Función para verificar el inicio de sesión en la base de datos
-function existeUsuario($nombre, $contra) {
+function existeUsuario($nombreUsuario, $contra) {
 
     
     // Conectar a la base de datos utilizando la clase db
@@ -27,7 +27,7 @@ function existeUsuario($nombre, $contra) {
     // Consultar la base de datos para encontrar un usuario con el nombre proporcionado
     $stmt = $conexion->prepare("SELECT * FROM usuario WHERE nombre = ? AND contrasenia = ?");
 
-    $stmt->bindParam(1, $nombre);
+    $stmt->bindParam(1, $nombreUsuario);
     $stmt->bindParam(2, $contra);
     $stmt->execute();
 
@@ -57,14 +57,14 @@ function existeUsuario($nombre, $contra) {
 }
 
 #logIn
-function login($nombre,$contra){
+function login($nombreUsuario,$contra){
     if (isset($_POST["entrar"])) {
 
-        if (existeUsuario($nombre, $contra)) {
+        if (existeUsuario($nombreUsuario, $contra)) {
             // Las credenciales son correctas, establecer la sesión y redirigir
 
             // Las credenciales son correctas, establecer la sesión y redirigir
-            //guardaSesion('nombreUsuario',crearUsuario());    
+            guardaSesion('nombreUsuario',crearUsuario());    
 
             header('Location: http://autoescueladaniels.com/formularios/alumnoMenu.php?'. $nombreUsuario);
 
@@ -82,7 +82,7 @@ function login($nombre,$contra){
 
 function crearUsuario(){
 
-    return new Usuario($nombreUsuario,$contra);
+    return new Usuario($id,$nombreUsuario,$contra,$rol);
  
 
 }

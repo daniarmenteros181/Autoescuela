@@ -25,15 +25,23 @@ if (estarLogeado()) {
 
 }
 
+// Puedes agregar más contenido y funcionalidad aquí que solo los usuarios logueados puedan ver.
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+ // Verifica si se presionó el botón "borrar"
+ if (isset($_POST["out"])) {
 
+    cierraSesion();
 
+    header('Location: http://autoescueladaniels.com/formularios/login.php?');
+    
+    
+}
+
+}
 
 
 ?>
-
-
-
 
 
 <!DOCTYPE html>
@@ -42,11 +50,23 @@ if (estarLogeado()) {
     <title>Alumno</title>
 </head>
 <body>
+   
+
+
+    <form id="miFormulario" method="post" action="alumnoMenu.php?nombreUsuario=<?php echo $nombreUsuario; ?>">
     <h1>Registro de Usuario</h1>
     
     <h1>Hacer examenes</h1>
 
     <h1>Ver resultados</h1>
+
+        
+        <input type="submit" value="out" name="out">
+
+
+
+    </form>
+
 
     </form>
 </body>
