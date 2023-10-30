@@ -1,5 +1,10 @@
 <?php
 
+
+//class Usuario {
+
+    //y poner todos los metodos staticos, autocargador.
+
 require_once "../repositorio/db.php";
 require_once "sesion.php";
 require_once "../entidades/usuario.php";
@@ -87,4 +92,5 @@ function crearUsuario(){
 
 #logOut
 
+//}
 ?>

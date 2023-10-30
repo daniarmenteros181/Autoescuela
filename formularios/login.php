@@ -3,7 +3,7 @@
 require_once "../helpers/sesion.php";
 require_once "../helpers/login.php";
 
-
+//sesion::iniciaSesion;
 
 iniciaSesion();
 

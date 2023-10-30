@@ -19,6 +19,8 @@ window.addEventListener("load",function(){
                         var pregAux=pregunta.cloneNode(true);
                         pregAux.getElementsByClassName("categoria")[0].innerHTML=y.examen[0].pregunta[i].categoria;
                         pregAux.getElementsByClassName("dificultad")[0].innerHTML=y.examen[0].pregunta[i].dificultad;
+                        pregAux.getElementsByClassName("enunciado")[0].innerHTML=y.examen[0].pregunta[i].enunciado;
+
                         pregAux.getElementsByClassName("id")[0].innerHTML=y.examen[0].pregunta[i].id;
 
                         pregAux.getElementsByClassName("res1")[0].innerHTML=y.examen[0].pregunta[i].respuesta[i].res1;
