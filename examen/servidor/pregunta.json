@@ -1,0 +1,31 @@
+{
+
+    "examen":[{
+        "id":1,
+        "creador":"Daniel",
+            "pregunta":[{
+                "id":1 ,
+                "categoria":" Motor",
+                "dificultad":"Facil",
+                    "respuesta":[{
+                        "res1":"sdfg",
+                        "res2":"FDS",
+                        "res3":"gfredf"
+
+                    }
+
+                    ]           
+        }
+
+        ]
+    }
+    ]
+
+
+    
+
+    
+
+}
+
+
