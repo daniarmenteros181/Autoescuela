@@ -7,6 +7,8 @@
                 "id":1 ,
                 "categoria":" Motor",
                 "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../senial.jpg",
                 "enunciado":"svbrehbvorhebvhorevrebbvoerubv frebhugbbr gb gbh bugureogbhrstgbvwbo g",
                     "respuesta":[{
                         "res1":"sdfg",

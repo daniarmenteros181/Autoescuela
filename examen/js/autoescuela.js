@@ -23,6 +23,9 @@ window.addEventListener("load",function(){
 
                         pregAux.getElementsByClassName("id")[0].innerHTML=y.examen[0].pregunta[i].id;
 
+                        pregAux.getElementsByClassName("url")[0].setAttribute("src",y.examen[0].pregunta[i].url);
+
+
                         pregAux.getElementsByClassName("res1")[0].innerHTML=y.examen[0].pregunta[i].respuesta[i].res1;
                         pregAux.getElementsByClassName("res2")[0].innerHTML=y.examen[0].pregunta[i].respuesta[i].res2;
                         pregAux.getElementsByClassName("res3")[0].innerHTML=y.examen[0].pregunta[i].respuesta[i].res3;
