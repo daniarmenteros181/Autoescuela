@@ -1,11 +1,39 @@
 <?php 
 
-/** Autocargador de librerias **/
-spl_autoload_register('autocargador');
+Class cargador{
 
-function autocargador($insNom)
-{
-	include $insNom . '.class.php';
+public static function autocargar(){
+    spl_autoload_register('autocarga');
+
+}
+}
+
+function autocarga($clase){
+	if(file_exists($_SERVER["DOCUMENT_ROOT"]."/helpers" . "/" .$clase .".php")){
+        require_once $_SERVER["DOCUMENT_ROOT"]."/helpers" . "/" . $clase .".php";
+
+    }
+    else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/formularios"."/".$clase.".php")){
+        require_once $_SERVER["DOCUMENT_ROOT"]."/formularios"."/".$clase.".php";
+
+    }else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/repositorio"."/".$clase.".php")){
+        require_once $_SERVER["DOCUMENT_ROOT"]."/repositorio"."/".$clase.".php";
+
+    }
+    else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/entidades"."/".$clase.".php")){
+        require_once $_SERVER["DOCUMENT_ROOT"]."/entidades"."/".$clase.".php";
+
+    }
+    else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/examen"."/".$clase.".php")){
+        require_once $_SERVER["DOCUMENT_ROOT"]."/examen"."/".$clase.".php";
+
+    }
+    else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/api"."/".$clase.".php")){
+        require_once $_SERVER["DOCUMENT_ROOT"]."/api"."/".$clase.".php";
+
+    }
+
+
 }
 
 

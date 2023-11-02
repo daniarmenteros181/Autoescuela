@@ -1,35 +1,43 @@
 <?php
 #Abrir sesion y cerrar, leer sesion, guardar sesion, como metodos
 
+require_once '../cargador.php';
+cargador::autocargar();
 
-function iniciaSesion() {
+class sesion{
+      
+      public static function iniciaSesion() {
 
     session_start();
 
 
 }
 
-function cierraSesion() {
+      public static function cierraSesion() {
 
     session_destroy();
     
 
 }
 
-function guardaSesion($clave,$valor) {
+      public static function guardaSesion($clave,$valor) {
 
     $_SESSION[$clave]=$valor;
 
 }
 
-function leerSesion($clave) {
+      public static function leerSesion($clave) {
     
 
 }
 
-function existeSesion($clave) {
+      public static function existeSesion($clave) {
     
 
 }
+
+
+}
+
 
 ?>

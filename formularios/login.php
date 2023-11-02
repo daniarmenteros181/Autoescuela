@@ -1,11 +1,12 @@
 <?php
 
-require_once "../helpers/sesion.php";
-require_once "../helpers/login.php";
+require_once '../cargador.php';
+cargador::autocargar();
 
-//sesion::iniciaSesion;
 
-iniciaSesion();
+class login{
+
+public static function procesarFormulario() {
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -13,7 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombreUsuario = $_POST["nombre"];
     $contra = $_POST["contra"];
 
-    login($nombreUsuario,$contra);
+   // sesion::iniciaSesion(); // Llama al método iniciarSesion para iniciar la sesión
+
+
+    funcionesLogin::login($nombreUsuario,$contra);
 
     if(isset($_POST["registro"])){
         header('Location: http://autoescueladaniels.com/formularios/registro.php?');
@@ -28,7 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
 }
+}
+}
 
+login::procesarFormulario();
 
 ?>
 

@@ -1,20 +1,21 @@
 <?php
 
+require_once '../cargador.php';
 
-require_once "../helpers/login.php";
-require_once "../helpers/sesion.php";
+cargador::autocargar();
 
-iniciaSesion();
+sesion::iniciaSesion();
 
-$nombreUsuario=isset( $_GET['nombreUsuario']) ;
-//echo "¡Bienvenido, $nombreUsuario!";
+$nombreUsuario = isset($_GET['nombreUsuario']) ? $_GET['nombreUsuario'] : "";
 
 
-if (estarLogeado()) {
+
+if (funcionesLogin::estarLogeado()) {
     // El usuario está logueado, muestra el contenido protegido aquí.
-   //$nombreUsuario = $_SESSION['nombreUsuario']; // Obtén el nombre del usuario desde la sesión
-   guardaSesion('nombreUsuario',crearUsuario());
    echo "¡Bienvenido, $nombreUsuario!";
+
+
+   sesion::guardaSesion('nombreUsuario',funcionesLogin::crearUsuario());
 
 
 } else {
@@ -31,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  // Verifica si se presionó el botón "borrar"
  if (isset($_POST["out"])) {
 
-    cierraSesion();
+    sesion::cierraSesion();
 
     header('Location: http://autoescueladaniels.com/formularios/login.php?');
     
@@ -39,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 }
+
 
 
 ?>

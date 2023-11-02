@@ -1,53 +1,65 @@
 <?php
 
 
-require_once '../repositorio/db.php';
-require_once '../repositorio/usuarioRepositorio.php';
+require_once '../cargador.php';
+cargador::autocargar();
 
+class registro{
 
+    public static function creacion(){
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    if (isset($_POST["crearCuenta"])) {
-        // Recoge los datos del formulario.
-        $nombre = $_POST["nombre"];
-        $contrasena = $_POST["contrasena"];
-
-        // Verifica que los campos no estén vacíos (puedes agregar más validaciones si es necesario).
-        if (!empty($nombre) && !empty($contrasena)) {
-
-            // Obtiene la conexión a la base de datos.
-            $conexion = db::entrar();
-            
-            // Crea una instancia de RepositorioUsuario pasando la conexión.
-            $repositorioUsuario = new usuarioRepositorio($conexion);
-            
-            // Inserta el usuario en la base de datos.
-            $exito = $repositorioUsuario->insertarUsuario($nombre, $contrasena);
-
-            if ($exito) {
-                // Redirige a la página de inicio de sesión u otra página según tus necesidades.
-                header('Location: http://autoescueladaniels.com/formularios/login.php');
-                exit();
-            } else {
-                // Manejo de errores si la inserción falla.
-                echo "Error al crear la cuenta.";
+            if (isset($_POST["crearCuenta"])) {
+                // Recoge los datos del formulario.
+                $nombre = $_POST["nombre"];
+                $contrasena = $_POST["contrasena"];
+        
+                // Verifica que los campos no estén vacíos (puedes agregar más validaciones si es necesario).
+                if (!empty($nombre) && !empty($contrasena)) {
+        
+                    // Obtiene la conexión a la base de datos.
+                    $conexion = db::entrar();
+                    
+                    // Crea una instancia de RepositorioUsuario pasando la conexión.
+                    $repositorioUsuario = new usuarioRepositorio($conexion);
+                    
+                    // Inserta el usuario en la base de datos.
+                    $exito = $repositorioUsuario->insertarUsuario($nombre, $contrasena);
+        
+                    if ($exito) {
+                        // Redirige a la página de inicio de sesión u otra página según tus necesidades.
+                        header('Location: http://autoescueladaniels.com/formularios/login.php');
+                        exit();
+                    } else {
+                        // Manejo de errores si la inserción falla.
+                        echo "Error al crear la cuenta.";
+                    }
+                } else {
+                    // Manejo de errores si los campos están vacíos.
+                    echo "Por favor, complete todos los campos.";
+                }
+        
             }
-        } else {
-            // Manejo de errores si los campos están vacíos.
-            echo "Por favor, complete todos los campos.";
+        
+            if(isset($_POST["inicio"])){
+                header('Location: http://autoescueladaniels.com/formularios/login.php?');
+        
+        
+            }
+            
+            
         }
 
-    }
-
-    if(isset($_POST["inicio"])){
-        header('Location: http://autoescueladaniels.com/formularios/login.php?');
-
 
     }
-    
-    
+
+
+
 }
+
+registro::creacion();
+
 
 
 
