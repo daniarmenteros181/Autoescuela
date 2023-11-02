@@ -12,7 +12,7 @@ class Principal
     {
 
         // Ahora puedes requerir la clase login.php después de cargar los cargadores
-        require_once 'vista/vistas.php';
+        require_once 'vista/layout.php';
 
         }
         

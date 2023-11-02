@@ -6,6 +6,10 @@ cargador::autocargar();
 
 class login{
 
+
+
+
+
 public static function procesarFormulario() {
 
 
