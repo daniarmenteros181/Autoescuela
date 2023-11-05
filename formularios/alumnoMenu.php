@@ -1,8 +1,12 @@
 <?php
 
 require_once '../cargador.php';
-
 cargador::autocargar();
+
+
+class alumnoMenu{
+
+public static function llamada(){
 
 sesion::iniciaSesion();
 
@@ -16,6 +20,8 @@ if (funcionesLogin::estarLogeado()) {
 
 
    sesion::guardaSesion('nombreUsuario',funcionesLogin::crearUsuario());
+   //sesion::guardaSesion('nombreUsuario',$_SESSION["nombreUsuario"]=$nombreUsuario);
+
 
 
 } else {
@@ -36,10 +42,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     header('Location: http://autoescueladaniels.com/formularios/login.php?');
     
-    
+ 
+}
 }
 
 }
+
+}
+
+alumnoMenu::llamada();
+
+
 
 
 

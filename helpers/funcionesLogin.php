@@ -1,5 +1,8 @@
 <?php
 
+require_once '../cargador.php';
+cargador::autocargar();
+
 class funcionesLogin{
 
 
@@ -45,7 +48,7 @@ class funcionesLogin{
             header('Location: http://autoescueladaniels.com/formularios/adminMenu.php?nombreUsuario=' . $nombreUsuario);
         } elseif ($rol === 'profesor') {
             header('Location: http://autoescueladaniels.com/formularios/profesorMenu.php?nombreUsuario=' . $nombreUsuario);
-        } elseif($rol === 'alumno' ) {
+        } elseif($rol === 'alumno') {
             header('Location: http://autoescueladaniels.com/formularios/alumnoMenu.php?nombreUsuario=' . $nombreUsuario);
         }elseif($rol ===''){
             header('Location: http://autoescueladaniels.com/formularios/espera.php?');
@@ -68,7 +71,7 @@ class funcionesLogin{
 
         if (funcionesLogin::existeUsuario($nombreUsuario, $contra)) {
             // Las credenciales son correctas, establecer la sesión y redirigir
-            //sesion::guardaSesion('nombreUsuario',funcionesLogin::crearUsuario());
+            sesion::guardaSesion('nombreUsuario',funcionesLogin::crearUsuario());
 
 
         } else {

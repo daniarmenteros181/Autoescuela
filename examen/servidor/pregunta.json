@@ -9,16 +9,47 @@
                 "dificultad":"Facil",
                 "tipoRecurso":"img",
                 "url": "../../senial.jpg",
-                "enunciado":"svbrehbvorhebvhorevrebbvoerubv frebhugbbr gb gbh bugureogbhrstgbvwbo g",
+                "enunciado":"¿Cuál es la distancia de frenado promedio a una velocidad de 100 km/h en condiciones normales?",
                     "respuesta":[{
-                        "res1":"sdfg",
-                        "res2":"FDS",
-                        "res3":"gfredf"
+                        "res1":"A) 30 metros",
+                        "res2":"B) 45 metros",
+                        "res3":"C) 60 metros"
 
                     }
 
                     ]           
+        },{
+            "id":2 ,
+            "categoria":" Ruedas",
+            "dificultad":"Facil",
+            "tipoRecurso":"img",
+            "url": "../../senial.jpg",
+            "enunciado":"¿Cuál es la presión recomendada para los neumáticos de un automóvil?",
+                "respuesta":[{
+                    "res1": "A) 32 PSI",
+                    "res2": "B) 40 PSI",
+                    "res3": "C) 28 PSI"
+
+                }
+
+                ]           
+    },{
+        "id":3 ,
+        "categoria":" Ruedas",
+        "dificultad":"Facil",
+        "tipoRecurso":"img",
+        "url": "../../senial.jpg",
+        "enunciado":"¿Cuál es la presión recomendada para los neumáticos de un automóvil?",
+            "respuesta":[{
+                "res1": "A) 32 PSI",
+                "res2": "B) 40 PSI",
+                "res3": "C) 28 PSI"
+
+            }
+
+            ]           
         }
+
 
         ]
     }
