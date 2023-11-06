@@ -1,5 +1,4 @@
 {
-
     "examen":[{
         "id":1,
         "creador":"Daniel",
@@ -23,7 +22,7 @@
             "categoria":" Ruedas",
             "dificultad":"Facil",
             "tipoRecurso":"img",
-            "url": "../../senial.jpg",
+            "url": "../../rueda.jpg",
             "enunciado":"¿Cuál es la presión recomendada para los neumáticos de un automóvil?",
                 "respuesta":[{
                     "res1": "A) 32 PSI",
@@ -38,26 +37,429 @@
         "categoria":" Ruedas",
         "dificultad":"Facil",
         "tipoRecurso":"img",
-        "url": "../../senial.jpg",
-        "enunciado":"¿Cuál es la presión recomendada para los neumáticos de un automóvil?",
+        "url": "../../cien.png",
+        "enunciado":"¿Velocidad maxima en autovia?",
             "respuesta":[{
-                "res1": "A) 32 PSI",
-                "res2": "B) 40 PSI",
-                "res3": "C) 28 PSI"
+                "res1": "A) 60 Km/h",
+                "res2": "B) 120 Km/h",
+                "res3": "C) 160 Km/h"
 
             }
 
             ]           
-        }
+    },{
+        "id":4 ,
+        "categoria":" Ruedas",
+        "dificultad":"Facil",
+        "tipoRecurso":"img",
+        "url": "../../cien.png",
+        "enunciado":"  Aire ?",
+            "respuesta":[{
+                "res1": "A) 60 Km/h",
+                "res2": "B) 120 Km/h",
+                "res3": "C) 160 Km/h"
+
+            }
+
+            ]           
+    },{
+        "id":5 ,
+        "categoria":" Ruedas",
+        "dificultad":"Facil",
+        "tipoRecurso":"img",
+        "url": "../../cien.png",
+        "enunciado":"  ss ?",
+            "respuesta":[{
+                "res1": "A) 60 Km/h",
+                "res2": "B) 120 Km/h",
+                "res3": "C) 160 Km/h"
+
+            }
+
+            ]           
+    },{
+        "id":6 ,
+        "categoria":" Ruedas",
+        "dificultad":"Facil",
+        "tipoRecurso":"img",
+        "url": "../../cien.png",
+        "enunciado":"  Airsse ?",
+            "respuesta":[{
+                "res1": "A) 60 Km/h",
+                "res2": "B) 120 Km/h",
+                "res3": "C) 160 Km/h"
+
+            }
+
+            ]           
+    },{
+        "id":7 ,
+        "categoria":" Ruedas",
+        "dificultad":"Facil",
+        "tipoRecurso":"img",
+        "url": "../../cien.png",
+        "enunciado":"  d ?",
+            "respuesta":[{
+                "res1": "A) 60 Km/h",
+                "res2": "B) 120 Km/h",
+                "res3": "C) 160 Km/h"
+
+            }
+
+            ]           
+        },{
+            "id":8 ,
+            "categoria":" Ruedas",
+            "dificultad":"Facil",
+            "tipoRecurso":"img",
+            "url": "../../cien.png",
+            "enunciado":"  wwww ?",
+                "respuesta":[{
+                    "res1": "A) 60 Km/h",
+                    "res2": "B) 120 Km/h",
+                    "res3": "C) 160 Km/h"
+    
+                }
+    
+                ]           
+        },{
+            "id":9 ,
+            "categoria":" Ruedas",
+            "dificultad":"Facil",
+            "tipoRecurso":"img",
+            "url": "../../cien.png",
+            "enunciado":"  Airefse ?",
+                "respuesta":[{
+                    "res1": "A) 60 Km/h",
+                    "res2": "B) 120 Km/h",
+                    "res3": "C) 160 Km/h"
+    
+                }
+    
+                ]           
+        },{
+            "id":10 ,
+            "categoria":" Ruedas",
+            "dificultad":"Facil",
+            "tipoRecurso":"img",
+            "url": "../../cien.png",
+            "enunciado":"  gtfg ?",
+                "respuesta":[{
+                    "res1": "A) 60 Km/h",
+                    "res2": "B) 120 Km/h",
+                    "res3": "C) 160 Km/h"
+    
+                }
+    
+                ]           
+            },{
+                "id":11 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":12 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":13 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":14 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":15 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":16 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":17 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":18 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":19 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":20 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":21 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":22 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":23 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":24 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":25 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":26 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":27 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":28 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":29 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":[{
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            },{
+                "id":30 ,
+                "categoria":" Ruedas",
+                "dificultad":"Facil",
+                "tipoRecurso":"img",
+                "url": "../../cien.png",
+                "enunciado":"  gtfg ?",
+                    "respuesta":
+                    [
+                        {
+                        "res1": "A) 60 Km/h",
+                        "res2": "B) 120 Km/h",
+                        "res3": "C) 160 Km/h"
+        
+                    }
+        
+                    ]           
+            }
 
 
         ]
     }
     ]
-
-
-    
-
     
 
 }
