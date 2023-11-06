@@ -7,7 +7,7 @@
                 "categoria":" Motor",
                 "dificultad":"Facil",
                 "tipoRecurso":"img",
-                "url": "../../senial.jpg",
+                "url": "../../imagenes/senial.jpg",
                 "enunciado":"¿Cuál es la distancia de frenado promedio a una velocidad de 100 km/h en condiciones normales?",
                     "respuesta":[{
                         "res1":"A) 30 metros",
@@ -22,7 +22,7 @@
             "categoria":" Ruedas",
             "dificultad":"Facil",
             "tipoRecurso":"img",
-            "url": "../../rueda.jpg",
+            "url": "../../imagenes/rueda.jpg",
             "enunciado":"¿Cuál es la presión recomendada para los neumáticos de un automóvil?",
                 "respuesta":[{
                     "res1": "A) 32 PSI",
@@ -37,7 +37,7 @@
         "categoria":" Ruedas",
         "dificultad":"Facil",
         "tipoRecurso":"img",
-        "url": "../../cien.png",
+        "url": "../../imagenes/cien.png",
         "enunciado":"¿Velocidad maxima en autovia?",
             "respuesta":[{
                 "res1": "A) 60 Km/h",
@@ -52,7 +52,7 @@
         "categoria":" Ruedas",
         "dificultad":"Facil",
         "tipoRecurso":"img",
-        "url": "../../cien.png",
+        "url": "../../imagenes/cien.png",
         "enunciado":"  Aire ?",
             "respuesta":[{
                 "res1": "A) 60 Km/h",
@@ -412,7 +412,7 @@
                 "categoria":" Ruedas",
                 "dificultad":"Facil",
                 "tipoRecurso":"img",
-                "url": "../../cien.png",
+                "url": "../../imagenes/cien.png",
                 "enunciado":"  gtfg ?",
                     "respuesta":[{
                         "res1": "A) 60 Km/h",
