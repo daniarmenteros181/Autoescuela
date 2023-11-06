@@ -4,11 +4,11 @@ window.addEventListener("load", function () {
     var preguntas = [];
     var indicePreguntaActual = 0;
     var respuestas = {}; // Objeto para almacenar las respuestas
+    var botonesPregunta = [];    // Almacena los botones de pregunta
+
+
 
     btnComenzar.addEventListener("click", comenzar);
-
-    // Almacena los botones de pregunta
-    var botonesPregunta = [];
 
     function comenzar() {
         btnComenzar.style.display = "none";
@@ -54,8 +54,8 @@ window.addEventListener("load", function () {
             divExamen.appendChild(btnAtras);
 
 
-                mostrarPregunta(indicePreguntaActual);
-                crearBotones(); // Llama a mostrarPreguntas después de cargar las preguntas
+            mostrarPregunta(indicePreguntaActual);
+            crearBotones(); // Llama a mostrarPreguntas después de cargar las preguntas
 
             });
         });
@@ -69,6 +69,15 @@ window.addEventListener("load", function () {
         var preguntasDivs = divExamen.querySelectorAll('.pregunta');
         preguntasDivs.forEach(function (pregDiv, index) {
             pregDiv.style.display = (indice === index) ? 'block' : 'none';
+        });
+
+        // Resalta el botón correspondiente a la pregunta actual
+        botonesPregunta.forEach(function (btn, btnIndex) {
+            if (btnIndex === indice) {
+                btn.style.backgroundColor = 'lightblue'; // Cambia el color de fondo del botón activo
+            } else {
+                btn.style.backgroundColor = ''; // Restaura el color de fondo de los demás botones
+            }
         });
     
         var pregActual = preguntas[indice];
