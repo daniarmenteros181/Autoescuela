@@ -3,6 +3,8 @@ window.addEventListener("load", function () {
     var divExamen = document.getElementById("examen");
     var preguntas = [];
     var indicePreguntaActual = 0;
+    var respuestas = {}; // Objeto para almacenar las respuestas
+
 
 
     btnComenzar.addEventListener("click", comenzar);
@@ -18,11 +20,13 @@ window.addEventListener("load", function () {
             var contenedor = document.createElement("div");
             contenedor.innerHTML = y;
             var pregunta = contenedor.querySelector(".pregunta");
+            
 
 
             fetch("servidor/pregunta.json").then(x => x.json()).then(y => {
 
                 preguntas = y.examen[0].pregunta;
+                
 
                 
 
@@ -33,64 +37,35 @@ window.addEventListener("load", function () {
                     divExamen.appendChild(preguntaClone);
                 }
 
+                var botonesSiguiente = contenedor.querySelector(".siguiente");
+                var botonesAtras = contenedor.querySelector(".atras");
+             
+
+            // Agregar eventos a los botones
+            botonesSiguiente.addEventListener("click", function () {
+                if (indicePreguntaActual < preguntas.length - 1) {
+                    indicePreguntaActual++;
+                    mostrarPregunta(indicePreguntaActual);
+                }
+            });
+
+            botonesAtras.addEventListener("click", function () {
+                if (indicePreguntaActual > 0) {
+                    indicePreguntaActual--;
+                    mostrarPregunta(indicePreguntaActual);
+                }
+            });
+
+            divExamen.appendChild(botonesSiguiente);
+            divExamen.appendChild(botonesAtras);
 
 
                 mostrarPregunta(indicePreguntaActual);
                 crearBotones(); // Llama a mostrarPreguntas después de cargar las preguntas
-                crearBotonesSiguienteYAtras();
 
             });
         });
     }
-
-
-
-    // Función para crear botones "Siguiente" y "Atrás"
-    function crearBotonesSiguienteYAtras() {
-        var btnSiguiente = document.createElement("button");
-        btnSiguiente.id = "siguiente";
-        btnSiguiente.textContent = "Siguiente";
-
-        var btnAtras = document.createElement("button");
-        btnAtras.id = "atras";
-        btnAtras.textContent = "Atrás";
-
-        btnSiguiente.addEventListener("click", function () {
-            if (indicePreguntaActual < preguntas.length - 1) {
-                indicePreguntaActual++;
-                mostrarPregunta(indicePreguntaActual);
-            }
-        });
-
-        btnAtras.addEventListener("click", function () {
-            if (indicePreguntaActual > 0) {
-                indicePreguntaActual--;
-                mostrarPregunta(indicePreguntaActual);
-            }
-        });
-
-        // Agregar botones al DOM
-        divExamen.appendChild(btnSiguiente);
-        divExamen.appendChild(btnAtras);
-    }
-
-      //Funcion para Crear un botón por cada pregunta que haya 
-      function crearBotones() {
-        for (var i = 0; i < preguntas.length; i++) {
-            var btnPregunta = document.createElement("button");
-            btnPregunta.innerHTML = i + 1;
-            btnPregunta.addEventListener("click", function () {
-                var preguntaIndex = parseInt(this.innerHTML) - 1;
-                mostrarPregunta(preguntaIndex);
-            });
-            divExamen.appendChild(btnPregunta);
-            botonesPregunta.push(btnPregunta);
-
-
-            
-        }
-    }
-
 
 
     //Funcion para mostrar las preguntas
@@ -125,7 +100,39 @@ window.addEventListener("load", function () {
         pregDiv.getElementsByClassName("res1")[0].innerHTML = pregActual.respuesta[0].res1;
         pregDiv.getElementsByClassName("res2")[0].innerHTML = pregActual.respuesta[0].res2;
         pregDiv.getElementsByClassName("res3")[0].innerHTML = pregActual.respuesta[0].res3;
+
+        // Agregar evento para marcar una respuesta
+        pregDiv.querySelectorAll('input[type="radio"]').forEach(function (radio, index) {
+            radio.addEventListener("change", function () {
+                // Almacena la respuesta seleccionada en el objeto de respuestas
+                respuestas[indice] = index;
+            });
+        });
+
+        // Verificar si hay una respuesta previamente seleccionada y marcarla
+        if (respuestas.hasOwnProperty(indice)) {
+            pregDiv.querySelectorAll('input[type="radio"]')[respuestas[indice]].checked = true;
+        }
                 
+    }
+
+
+
+    //Funcion para Crear un botón por cada pregunta que haya 
+    function crearBotones() {
+        for (var i = 0; i < preguntas.length; i++) {
+            var btnPregunta = document.createElement("button");
+            btnPregunta.innerHTML = i + 1;
+            btnPregunta.addEventListener("click", function () {
+                var preguntaIndex = parseInt(this.innerHTML) - 1;
+                mostrarPregunta(preguntaIndex);
+            });
+            divExamen.appendChild(btnPregunta);
+            botonesPregunta.push(btnPregunta);
+
+
+            
+        }
     }
 
 
