@@ -5,10 +5,7 @@ window.addEventListener("load", function () {
     var indicePreguntaActual = 0;
     var respuestas = {}; // Objeto para almacenar las respuestas
 
-
-
     btnComenzar.addEventListener("click", comenzar);
-
 
     // Almacena los botones de pregunta
     var botonesPregunta = [];
@@ -20,14 +17,11 @@ window.addEventListener("load", function () {
             var contenedor = document.createElement("div");
             contenedor.innerHTML = y;
             var pregunta = contenedor.querySelector(".pregunta");
-            
-
+    
 
             fetch("servidor/pregunta.json").then(x => x.json()).then(y => {
 
                 preguntas = y.examen[0].pregunta;
-                
-
                 
 
                 // Crear preguntas ocultas excepto la primera
@@ -37,27 +31,27 @@ window.addEventListener("load", function () {
                     divExamen.appendChild(preguntaClone);
                 }
 
-                var botonesSiguiente = contenedor.querySelector(".siguiente");
-                var botonesAtras = contenedor.querySelector(".atras");
+                var btnSiguiente = contenedor.querySelector(".siguiente");
+                var btnAtras = contenedor.querySelector(".atras");
              
 
             // Agregar eventos a los botones
-            botonesSiguiente.addEventListener("click", function () {
+            btnSiguiente.addEventListener("click", function () {
                 if (indicePreguntaActual < preguntas.length - 1) {
                     indicePreguntaActual++;
                     mostrarPregunta(indicePreguntaActual);
                 }
             });
 
-            botonesAtras.addEventListener("click", function () {
+            btnAtras.addEventListener("click", function () {
                 if (indicePreguntaActual > 0) {
                     indicePreguntaActual--;
                     mostrarPregunta(indicePreguntaActual);
                 }
             });
 
-            divExamen.appendChild(botonesSiguiente);
-            divExamen.appendChild(botonesAtras);
+            divExamen.appendChild(btnSiguiente);
+            divExamen.appendChild(btnAtras);
 
 
                 mostrarPregunta(indicePreguntaActual);
@@ -70,20 +64,6 @@ window.addEventListener("load", function () {
 
     //Funcion para mostrar las preguntas
     function mostrarPregunta(indice) {
-        // Obtén la cantidad de preguntas
-        var numPreguntas = preguntas.length;
-    
-        if (numPreguntas === 0) {
-            // No hay preguntas, no hagas nada
-            return;
-        }
-    
-        // Asegúrate de que el índice esté en el rango válido
-        if (indice < 0) {
-            indice = 0;
-        } else if (indice >= numPreguntas) {
-            indice = numPreguntas - 1;
-        }
     
         // Oculta todas las preguntas
         var preguntasDivs = divExamen.querySelectorAll('.pregunta');
@@ -135,9 +115,4 @@ window.addEventListener("load", function () {
         }
     }
 
-
-
-
-   
-    
 });
