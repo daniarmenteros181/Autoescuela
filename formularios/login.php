@@ -6,10 +6,6 @@ cargador::autocargar();
 
 class login{
 
-
-
-
-
 public static function procesarFormulario() {
 
 
@@ -17,9 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $nombreUsuario = $_POST["nombre"];
     $contra = $_POST["contra"];
-
-   // sesion::iniciaSesion(); // Llama al método iniciarSesion para iniciar la sesión
-
 
     funcionesLogin::login($nombreUsuario,$contra);
 

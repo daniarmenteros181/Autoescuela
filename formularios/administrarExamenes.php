@@ -3,7 +3,7 @@
 require_once '../cargador.php';
 cargador::autocargar();
 
-class alumnoMenu{
+class administrarExamenes{
 
 public static function llamada(){
 
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 }
 
-alumnoMenu::llamada();
+administrarExamenes::llamada();
 
 
 
@@ -59,33 +59,14 @@ alumnoMenu::llamada();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Alumno</title>
+    <title>Administrar Examenes</title>
     <link rel="stylesheet" type="text/css" href="../estilos/estilosMenu.css">
 
 </head>
 <body>
    
-    <form id="miFormulario" method="post" action="alumnoMenu.php?nombreUsuario=">
-        <div class="menu">
-        <ul>
-            <li><a href="verNotasExamen.php">Ver Resultados</a></li>
-            <li class="dropdown">
-                <a href="../examen/">Hacer Examen</a>
-                <div class="dropdown-content">
-                    <a href="#">Aleatorio</a>
-                    <a href="#">Por profesor
-                        
-                    </a>
-                    <div class="submenu">
-                        <a href="#">Fácil</a>
-                        <a href="#">Medio</a>
-                        <a href="#">Difícil</a>
-                    </div>
-                </div>
-            </li>
-
-        </ul>
-    </div>
+    <form id="miFormulario" method="post" action="administrarExamenes.php?nombreUsuario=">
+        
     
     <input type="submit" value="out" name="out">
 

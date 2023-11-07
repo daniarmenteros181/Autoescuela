@@ -41,6 +41,18 @@ class usuarioRepositorio{
         return $stmt->execute();
     }
 
+    // Actualizar usuario sin rol
+    public function actualizarUsuariosSinRol($nuevoRol) {
+    $sql = "UPDATE usuario SET rol = :nuevoRol WHERE rol = ''";
+    $stmt = $this->conexion->prepare($sql);
+    $stmt->bindParam(':nuevoRol', $nuevoRol);
+
+    $stmt->execute();
+
+    return $stmt->rowCount();
+}
+
+
 
 }
 

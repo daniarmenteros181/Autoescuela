@@ -39,43 +39,36 @@ class funcionesLogin{
     // Verificar si se encontró un usuario con ese nombre y contraseña
     if ($usuario) {
         // Iniciar la sesión si es necesario
-         sesion::iniciaSesion();
+         //sesion::iniciaSesion();
 
          $rol = $usuario['rol'];
 
-        // Redirigir al usuario según su rol
-        if ($rol === 'admin') {
-            header('Location: http://autoescueladaniels.com/formularios/adminMenu.php?nombreUsuario=' . $nombreUsuario);
-        } elseif ($rol === 'profesor') {
-            header('Location: http://autoescueladaniels.com/formularios/profesorMenu.php?nombreUsuario=' . $nombreUsuario);
-        } elseif($rol === 'alumno') {
-            header('Location: http://autoescueladaniels.com/formularios/alumnoMenu.php?nombreUsuario=' . $nombreUsuario);
-        }elseif($rol ===''){
-            header('Location: http://autoescueladaniels.com/formularios/espera.php?');
-
-
-        }
-
-        return true;
+        return $rol;
     }
-
-    
-   
 
     return false;
 }
 
-#logIn
-    public static function login($nombreUsuario,$contra){
+public static function login($nombreUsuario, $contra) {
     if (isset($_POST["entrar"])) {
+        $rol = funcionesLogin::existeUsuario($nombreUsuario, $contra);
 
-        if (funcionesLogin::existeUsuario($nombreUsuario, $contra)) {
+        if ($rol) {
             // Las credenciales son correctas, establecer la sesión y redirigir
-            sesion::guardaSesion('nombreUsuario',funcionesLogin::crearUsuario());
+            sesion::iniciaSesion();
+            sesion::guardaSesion('nombreUsuario', $nombreUsuario);
 
-
+            // Redirigir al usuario según su rol
+            if ($rol === 'admin') {
+                header('Location: http://autoescueladaniels.com/formularios/adminMenu.php?nombreUsuario=' . $nombreUsuario);
+            } elseif ($rol === 'profesor') {
+                header('Location: http://autoescueladaniels.com/formularios/profesorMenu.php?nombreUsuario=' . $nombreUsuario);
+            } elseif ($rol === 'alumno') {
+                header('Location: http://autoescueladaniels.com/formularios/alumnoMenu.php?nombreUsuario=' . $nombreUsuario);
+            } else {
+                header('Location: http://autoescueladaniels.com/formularios/espera.php');
+            }
         } else {
-          
             // Las credenciales son incorrectas, mostrar un mensaje de error
             echo "Acceso denegado. Nombre o contraseña incorrectos.";
         }

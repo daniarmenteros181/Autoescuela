@@ -1,6 +1,55 @@
 <?php
 
+require_once '../cargador.php';
+cargador::autocargar();
 
+class adminMenu{
+
+public static function llamada(){
+
+sesion::iniciaSesion();
+
+$nombreUsuario = isset($_GET['nombreUsuario']) ? $_GET['nombreUsuario'] : "";
+
+
+
+if (funcionesLogin::estarLogeado()) {
+    // El usuario está logueado, muestra el contenido protegido aquí.
+   echo "¡Bienvenido, $nombreUsuario!";
+
+
+   //sesion::guardaSesion('nombreUsuario',funcionesLogin::crearUsuario());
+   sesion::guardaSesion('nombreUsuario',$_SESSION["nombreUsuario"]=$nombreUsuario);
+
+
+
+} else {
+    // El usuario no está logueado, muestra un mensaje o redirige a la página de inicio de sesión.
+    echo "mal, usuario!";
+
+   header('Location: http://autoescueladaniels.com/formularios/recuperarContrasenia.php?');
+
+}
+
+// Puedes agregar más contenido y funcionalidad aquí que solo los usuarios logueados puedan ver.
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+ // Verifica si se presionó el botón "borrar"
+ if (isset($_POST["out"])) {
+    
+    sesion::cierraSesion();
+
+    header('Location: http://autoescueladaniels.com/formularios/login.php?');
+    
+ 
+}
+}
+
+}
+
+}
+
+adminMenu::llamada();
 
 
 ?>
@@ -18,10 +67,10 @@
    
 
 
-    <form id="miFormulario" method="post" action="alumnoMenu.php?nombreUsuario=<?php echo $nombreUsuario; ?>">
+    <form id="miFormulario" method="post" action="adminMenu.php?nombreUsuario=">
     <div class="menu">
         <ul>
-            <li><a href="#">Ver Notas</a></li>
+            <li><a href="verNotas.php">Ver Notas</a></li>
             <li class="dropdown">
                 <a href="#">Crear Examen</a>
                 <div class="dropdown-content">
@@ -36,8 +85,8 @@
                     </div>
                 </div>
             </li>
-            <li><a href="#">Administrar Exámenes</a></li>
-            <li><a href="#">Verificar Alumnos</a></li>
+            <li><a href="administrarExamenes.php">Administrar Exámenes</a></li>
+            <li><a href="confirmarAlumnos.php">Verificar Alumnos</a></li>
 
         </ul>
     </div>
