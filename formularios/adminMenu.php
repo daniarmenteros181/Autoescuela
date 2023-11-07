@@ -9,18 +9,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Profesor</title>
+    <title>Admin</title>
+    <link rel="stylesheet" type="text/css" href="../estilos/estilosMenu.css">
+
+
 </head>
 <body>
    
 
 
     <form id="miFormulario" method="post" action="alumnoMenu.php?nombreUsuario=<?php echo $nombreUsuario; ?>">
-    <h1>Registro de Usuario</h1>
-    
-    <h1>Admin</h1>
+    <div class="menu">
+        <ul>
+            <li><a href="#">Ver Notas</a></li>
+            <li class="dropdown">
+                <a href="#">Crear Examen</a>
+                <div class="dropdown-content">
+                    <a href="#">Aleatorio</a>
+                    <a href="#">Dificultad
+                        
+                    </a>
+                    <div class="submenu">
+                        <a href="#">Fácil</a>
+                        <a href="#">Medio</a>
+                        <a href="#">Difícil</a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#">Administrar Exámenes</a></li>
+            <li><a href="#">Verificar Alumnos</a></li>
 
-    <h1>Ver resultados</h1>
+        </ul>
+    </div>
+    
 
         
         <input type="submit" value="out" name="out">

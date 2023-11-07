@@ -36,7 +36,7 @@
         "id":3 ,
         "categoria":" Ruedas",
         "dificultad":"Facil",
-        "tipoRecurso":"img",
+        "tipoRecurso":"img", 
         "url": "../../imagenes/cien.png",
         "enunciado":"¿Velocidad maxima en autovia?",
             "respuesta":[{

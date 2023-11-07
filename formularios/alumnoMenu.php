@@ -3,7 +3,6 @@
 require_once '../cargador.php';
 cargador::autocargar();
 
-
 class alumnoMenu{
 
 public static function llamada(){
@@ -54,8 +53,6 @@ alumnoMenu::llamada();
 
 
 
-
-
 ?>
 
 
@@ -63,22 +60,34 @@ alumnoMenu::llamada();
 <html>
 <head>
     <title>Alumno</title>
+    <link rel="stylesheet" type="text/css" href="../estilos/estilosMenu.css">
+
 </head>
 <body>
    
-
-
     <form id="miFormulario" method="post" action="alumnoMenu.php?nombreUsuario=<?php echo $nombreUsuario; ?>">
-    <h1>Registro de Usuario</h1>
+        <div class="menu">
+        <ul>
+            <li><a href="#">Ver Resultados</a></li>
+            <li class="dropdown">
+                <a href="#">Hacer Examen</a>
+                <div class="dropdown-content">
+                    <a href="#">Aleatorio</a>
+                    <a href="#">Por profesor
+                        
+                    </a>
+                    <div class="submenu">
+                        <a href="#">Fácil</a>
+                        <a href="#">Medio</a>
+                        <a href="#">Difícil</a>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
     
-    <h1>Hacer examenes</h1>
-
-    <h1>Ver resultados</h1>
-
-        
-        <input type="submit" value="out" name="out">
-
-
+    <input type="submit" value="out" name="out">
 
     </form>
 
