@@ -1,12 +1,11 @@
 <?php
 
-
-require_once '../cargador.php';
-cargador::autocargar();
-
 class registro{
 
     public static function creacion(){
+
+
+        
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
@@ -94,8 +93,13 @@ registro::creacion();
 
         <input type="submit" name="crearCuenta" value="Crear cuenta">
         <br>
-        <input type="submit" name="inicio" value="Iniciar sesion ">
 
+        <a href="?menu=login">Inicio sesion</a>
+
+
+        
+<!--         <input type="submit" name="inicio" value="Iniciar sesion ">
+ -->
     </form>
 </body>
 </html>

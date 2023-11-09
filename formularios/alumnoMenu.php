@@ -1,15 +1,15 @@
 <?php
 
-require_once '../cargador.php';
-cargador::autocargar();
-
 class alumnoMenu{
 
 public static function llamada(){
 
-sesion::iniciaSesion();
+//sesion::iniciaSesion();
 
-$nombreUsuario = isset($_GET['nombreUsuario']) ? $_GET['nombreUsuario'] : "";
+$nombreUsuario = sesion::leerSesion('nombreUsuario');
+//echo $nombreUsuario;
+
+//$nombreUsuario = isset($_GET['nombreUsuario']) ;
 
 
 
@@ -18,8 +18,8 @@ if (funcionesLogin::estarLogeado()) {
    echo "¡Bienvenido, $nombreUsuario!";
 
 
-   sesion::guardaSesion('nombreUsuario',funcionesLogin::crearUsuario());
-   //sesion::guardaSesion('nombreUsuario',$_SESSION["nombreUsuario"]=$nombreUsuario);
+   //sesion::guardaSesion('nombreUsuario',funcionesLogin::crearUsuario());
+   sesion::guardaSesion('nombreUsuario',$_SESSION["nombreUsuario"]=$nombreUsuario);
 
 
 
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     sesion::cierraSesion();
 
-    header('Location: http://autoescueladaniels.com/formularios/login.php?');
+    header('Location: ?menu=login');
     
  
 }
@@ -65,7 +65,7 @@ alumnoMenu::llamada();
 </head>
 <body>
    
-    <form id="miFormulario" method="post" action="alumnoMenu.php?nombreUsuario=">
+    <form id="miFormulario" method="post" action="">
         <div class="menu">
         <ul>
             <li><a href="verNotasExamen.php">Ver Resultados</a></li>

@@ -31,11 +31,13 @@ function autocarga($clase){
     else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/api"."/".$clase.".php")){
         require_once $_SERVER["DOCUMENT_ROOT"]."/api"."/".$clase.".php";
 
+    }else if(file_exists($_SERVER["DOCUMENT_ROOT"]."/vista"."/".$clase.".php")){
+        require_once $_SERVER["DOCUMENT_ROOT"]."/vista"."/".$clase.".php";
+
     }
 
-
 }
-
+cargador::autocargar();
 
 
 ?>

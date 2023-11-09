@@ -1,9 +1,8 @@
 <?php
 
-require_once 'cargador.php';
+
 
 // Llama a la función autocargar para registrar el cargador
-cargador::autocargar();
 
 
 class Principal
@@ -12,6 +11,7 @@ class Principal
     {
 
         // Ahora puedes requerir la clase login.php después de cargar los cargadores
+        require_once 'cargador.php';
         require_once 'vista/layout.php';
 
         }

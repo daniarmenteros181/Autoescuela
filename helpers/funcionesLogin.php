@@ -1,13 +1,11 @@
 <?php
 
-require_once '../cargador.php';
-cargador::autocargar();
-
 class funcionesLogin{
 
 
+
+
 #esta logueado(le pregunta a sesion si tiene clave que se llama users)
-//public static function
     public static function estarLogeado(){
 
     if (isset($_SESSION['nombreUsuario'])) {
@@ -21,6 +19,8 @@ class funcionesLogin{
 
 // Función para verificar el inicio de sesión en la base de datos
  public static function existeUsuario($nombreUsuario, $contra) {
+    //sesion::iniciaSesion();
+
 
     
     // Conectar a la base de datos utilizando la clase db
@@ -36,12 +36,15 @@ class funcionesLogin{
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
+
+
     // Verificar si se encontró un usuario con ese nombre y contraseña
     if ($usuario) {
         // Iniciar la sesión si es necesario
-         //sesion::iniciaSesion();
 
          $rol = $usuario['rol'];
+         //sesion::iniciaSesion();
+
 
         return $rol;
     }
@@ -50,23 +53,26 @@ class funcionesLogin{
 }
 
 public static function login($nombreUsuario, $contra) {
+
     if (isset($_POST["entrar"])) {
         $rol = funcionesLogin::existeUsuario($nombreUsuario, $contra);
 
         if ($rol) {
-            // Las credenciales son correctas, establecer la sesión y redirigir
-            sesion::iniciaSesion();
             sesion::guardaSesion('nombreUsuario', $nombreUsuario);
+
 
             // Redirigir al usuario según su rol
             if ($rol === 'admin') {
-                header('Location: http://autoescueladaniels.com/formularios/adminMenu.php?nombreUsuario=' . $nombreUsuario);
+
+
+                header('Location:?menu=admin');
+
             } elseif ($rol === 'profesor') {
-                header('Location: http://autoescueladaniels.com/formularios/profesorMenu.php?nombreUsuario=' . $nombreUsuario);
+                header('Location:?menu=profesor');
             } elseif ($rol === 'alumno') {
-                header('Location: http://autoescueladaniels.com/formularios/alumnoMenu.php?nombreUsuario=' . $nombreUsuario);
+               header('Location:?menu=alumno');
             } else {
-                header('Location: http://autoescueladaniels.com/formularios/espera.php');
+                header('Location:?menu=espera');
             }
         } else {
             // Las credenciales son incorrectas, mostrar un mensaje de error
@@ -75,35 +81,17 @@ public static function login($nombreUsuario, $contra) {
     }
 }
 
-
     public static function crearUsuario(){
 
-    return new Usuario($nombreUsuario,$contra);
- 
-
-}
-
+    return new Usuario($nombreUsuario,$contra,$rol);
 
 
 }
 
-#logOut
 
 
- /*
-    // Esto por si la contraseña esta de la otra manera almacenada en la base de datos
-    if ($usuario && password_verify($contra, $usuario['contrasenia'])) {
-        // Iniciar la sesión
-        //iniciaSesion();
-       
+}
 
-        return true;
-    }
-    */
-
-
-                //sesion::guardaSesion('nombreUsuario',$_SESSION["nombreUsuario"]=$nombreUsuario);
-                //header('Location: http://autoescueladaniels.com/formularios/alumnoMenu.php?nombreUsuario=' . $nombreUsuario);
 
 
 ?>

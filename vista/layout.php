@@ -23,28 +23,26 @@
 </head>
 </head>
 <body>
-    <h1>Bienvenido a la Página de Inicio</h1>
-
     <?php
-        //require_once './Vistas/Principal/header.php';
+        require_once 'header.php';
     ?>
 
 <section>
         <div id="cuerpo">
         <?php
-           //require_once './Vistas/Principal/enruta.php';
+           require_once 'enruta.php';
         ?>
         </div>
     </section>
 
     <?php
-        //require_once './Vistas/Principal/footer.php';
+        require_once 'footer.php';
     ?>
     
 
 
     
     <!-- Botón que te llevará a la página de inicio de sesión -->
-    <a href="http://autoescueladaniels.com/formularios/login.php"><button>Iniciar Sesión</button></a>
-</body>
+<!--     <a href="http://autoescueladaniels.com/formularios/login.php"><button>Iniciar Sesión</button></a>
+ --></body>
 </html>

@@ -1,16 +1,12 @@
 <?php
 
-require_once '../cargador.php';
-cargador::autocargar();
-
 class profesorMenu{
 
 public static function llamada(){
 
-sesion::iniciaSesion();
+//sesion::iniciaSesion();
 
-$nombreUsuario = isset($_GET['nombreUsuario']) ? $_GET['nombreUsuario'] : "";
-
+$nombreUsuario=sesion::leerSesion('nombreUsuario');
 
 
 if (funcionesLogin::estarLogeado()) {
@@ -39,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     sesion::cierraSesion();
 
-    header('Location: http://autoescueladaniels.com/formularios/login.php?');
+    header('Location: ?menu=login');
     
  
 }
@@ -64,7 +60,7 @@ profesorMenu::llamada();
    
 
 
-    <form id="miFormulario" method="post" action="profesorMenu.php?nombreUsuario=">
+    <form id="miFormulario" method="post" action="">
     <div class="menu">
         <ul>
             <li><a href="verNotas.php">Ver Notas</a></li>
