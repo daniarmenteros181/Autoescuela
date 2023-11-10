@@ -4,7 +4,7 @@ window.addEventListener("load", function () {
     var preguntas = [];
     var indicePreguntaActual = 0;
     var botonesPregunta = [];    // Almacena los botones de pregunta
-    var respuestas = [];
+    var respuestas = []; //Una array que alamacenara las respuestas de los usuarios 
 
 
 
@@ -35,7 +35,7 @@ window.addEventListener("load", function () {
 
                 var btnAtras = contenedor.querySelector(".atras");
                 var btnSiguiente = contenedor.querySelector(".siguiente");
-                var btnFinalizar = contenedor.querySelector(".finalizar"); // Cambia "btnfinalizar" a "btnFinalizar"
+                var btnFinalizar = contenedor.querySelector(".finalizar"); 
 
 
                 
@@ -112,11 +112,17 @@ window.addEventListener("load", function () {
                 auxPadre=auxPadre.parentNode;
 
             auxPadre.getElementsByClassName("dudosa")[0].checked=false;
+            agregarEventosRadioButtons(pregDiv, indicePreguntaActual);
+            actualizarColorBotonPregunta(indicePreguntaActual);
+            
         }
 
-        marcaBotonPreg(indicePreguntaActual);
+        //marcaBotonPreg(indicePreguntaActual);
 
-        agregarEventosRadioButtons(pregDiv, indicePreguntaActual);
+         agregarEventosRadioButtons(pregDiv, indicePreguntaActual);
+        if (indicePreguntaActual < botonesPregunta.length) {
+            actualizarColorBotonPregunta(indicePreguntaActual);
+        } 
 
                 
     }
@@ -129,18 +135,19 @@ window.addEventListener("load", function () {
                 indicePreguntaActual = parseInt(this.innerHTML) - 1;
                 mostrarPregunta(indicePreguntaActual);
                 //console.log(indicePreguntaActual);
-                marcaBotonPreg(indicePreguntaActual);
+                //marcaBotonPreg(indicePreguntaActual);
+
             });
             divExamen.appendChild(btnPregunta);
             botonesPregunta.push(btnPregunta);
         }
+         // Marcar el botón de la primera pregunta cuando se crean los botones
+        //marcaBotonPreg(0); 
     
-        // Marcar el botón de la primera pregunta cuando se crean los botones
-        marcaBotonPreg(0);
     }
 
-    // Resalta el botón correspondiente a la pregunta actual
-    function marcaBotonPreg(indicePreguntaActual){
+ /*    // Resalta el botón correspondiente a la pregunta actual
+   function marcaBotonPreg(indicePreguntaActual){
     botonesPregunta.forEach(function (btn, btnIndex) {
         if (btnIndex === indicePreguntaActual) {
             btn.style.backgroundColor = 'lightblue'; // Cambia el color de fondo del botón activo
@@ -148,12 +155,14 @@ window.addEventListener("load", function () {
             btn.style.backgroundColor = ''; // Restaura el color de fondo de los demás botones
         }
     });
-    }
+    }  */
 
   // Agregar eventos a los botones de radio
 function agregarEventosRadioButtons(pregDiv, indicePreguntaActual) {
     var respuestasRadio = pregDiv.querySelectorAll('input[type="radio"]');
     var enunciadosRespuestas = pregDiv.querySelectorAll('.respuesta p');
+    var dudosaCheckbox = pregDiv.querySelector('.dudosa');
+
 
     respuestasRadio.forEach(function (radio, index) {
         radio.addEventListener("change", function () {
@@ -164,10 +173,37 @@ function agregarEventosRadioButtons(pregDiv, indicePreguntaActual) {
                     respuesta: enunciadoRespuesta
                 };
                 console.log(`Respuesta seleccionada para la pregunta ${indicePreguntaActual + 1}: ${enunciadoRespuesta}`);
+                    actualizarColorBotonPregunta(indicePreguntaActual);
+                
             }
         });
     });
+     // Agregar evento de cambio para la casilla "dudosa"
+     dudosaCheckbox.addEventListener("change", function () {
+        actualizarColorBotonPregunta(indicePreguntaActual);
+    }); 
+
 }
+
+
+ function actualizarColorBotonPregunta(indicePregunta) {
+    var btnPregunta = botonesPregunta[indicePregunta];
+    if (respuestas[indicePregunta]) {
+        // Pregunta respondida, poner en verde
+        btnPregunta.style.backgroundColor = "green";
+    } else {
+        // Pregunta no respondida, revisar si está marcada como dudosa
+        var pregDiv = divExamen.querySelectorAll('.pregunta')[indicePregunta];
+        var dudosaCheckbox = pregDiv.querySelector('.dudosa');
+        if (dudosaCheckbox.checked) {
+            // Pregunta marcada como dudosa, poner en amarillo
+            btnPregunta.style.backgroundColor = "yellow";
+        } else {
+            // Pregunta no respondida ni marcada como dudosa, dejar el color por defecto
+            btnPregunta.style.backgroundColor = "";
+        }
+    }
+} 
 
 // Función para crear un JSON con las respuestas
 function crearJSONRespuestas() {
@@ -177,6 +213,4 @@ function crearJSONRespuestas() {
 }
 
 });
-// Agregar evento al botón de finalizar o enviar
-//var btnFinalizar = document.getElementById("finalizar"); // Asume que tienes un botón con id "finalizar"
 
