@@ -1,10 +1,5 @@
 <?php
 
-
-
-// Llama a la función autocargar para registrar el cargador
-
-
 class Principal
 {
     public static function main()

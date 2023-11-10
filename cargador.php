@@ -37,6 +37,8 @@ function autocarga($clase){
     }
 
 }
+
+// Llama a la función autocargar para que se ejecute
 cargador::autocargar();
 
 

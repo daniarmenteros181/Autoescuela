@@ -4,7 +4,7 @@ class adminMenu{
 
 public static function llamada(){
 
-//sesion::iniciaSesion();
+//sesion::();
 
 $nombreUsuario = sesion::leerSesion('nombreUsuario');
 

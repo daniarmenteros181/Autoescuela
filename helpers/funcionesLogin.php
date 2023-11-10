@@ -53,6 +53,11 @@ class funcionesLogin{
 }
 
 public static function login($nombreUsuario, $contra) {
+            /* sesion::iniciaSesion();
+            self::iniciaSesion(); */
+
+
+    
 
     if (isset($_POST["entrar"])) {
         $rol = funcionesLogin::existeUsuario($nombreUsuario, $contra);
