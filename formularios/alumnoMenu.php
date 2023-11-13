@@ -68,9 +68,11 @@ alumnoMenu::llamada();
     <form id="miFormulario" method="post" action="">
         <div class="menu">
         <ul>
-            <li><a href="verNotasExamen.php">Ver Resultados</a></li>
+            <li><a href="?menu=notasVer">Ver Resultados</a></li>
             <li class="dropdown">
                 <a href="../examen/">Hacer Examen</a>
+<!--                 <a href="?menu=hacerExam">Hacer Examen</a>
+ -->
                 <div class="dropdown-content">
                     <a href="#">Aleatorio</a>
                     <a href="#">Por profesor

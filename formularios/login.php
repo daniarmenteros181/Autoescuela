@@ -32,7 +32,7 @@ login::procesarFormulario();
 <body>
     <h1>Inicio Sesion</h1>
 
-
+    <div id="coge">
     <form id="miFormulario" method="post" action="">
 
         <label for="nombre">Usuario:</label>
@@ -49,7 +49,9 @@ login::procesarFormulario();
 
         <br>
         <a href="?menu=olvido">¿Has olvidado tu contraseña?</a>
+
         
     </form>
+    </div>
     </body>
 </html>

@@ -78,7 +78,7 @@ profesorMenu::llamada();
                     </div>
                 </div>
             </li>
-            <li><a href="administrarExamenes.php">Administrar Exámenes</a></li>
+            <li><a href="?menu=administrarExam">Administrar Exámenes</a></li>
         </ul>
     </div>
 

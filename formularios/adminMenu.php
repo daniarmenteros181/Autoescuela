@@ -54,8 +54,8 @@ adminMenu::llamada();
 <html>
 <head>
     <title>Admin</title>
-    <link rel="stylesheet" type="text/css" href="../estilos/estilosMenu.css">
-
+<!--     <link rel="stylesheet" type="text/css" href="../estilos/estilosMenu.css">
+ -->
 
 </head>
 <body>
@@ -80,11 +80,14 @@ adminMenu::llamada();
             </li>
             <li><a href="administrarExamenes.php">Administrar Exámenes</a></li>
             <li><a href="confirmarAlumnos.php">Verificar Alumnos</a></li>
+            <li><input type="submit" class="cierre" value="out" name="out"></li>
 
         </ul>
+       
+
+
     </div>
         
-        <input type="submit" value="out" name="out">
 
     </form>
 

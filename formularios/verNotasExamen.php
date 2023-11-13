@@ -1,13 +1,11 @@
 <?php
 
-require_once '../cargador.php';
-cargador::autocargar();
 
 class verNotasExamen{
 
 public static function llamada(){
 
-sesion::iniciaSesion();
+//sesion::iniciaSesion();
 
 $nombreUsuario = isset($_GET['nombreUsuario']) ? $_GET['nombreUsuario'] : "";
 

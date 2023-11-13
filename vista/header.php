@@ -1,11 +1,15 @@
 <?php
 
 sesion::iniciaSesion();
-//$nombreUsuario = sesion::leerSesion('nombreUsuario');
-//echo "¡Bienvenido, $nombreUsuario!"; 
+ if(funcionesLogin::estarLogeado()){
 
-if(!funcionesLogin::estarLogeado()){
+$nombreUsuario = sesion::leerSesion('nombreUsuario');
+echo "¡Bienvenido, $nombreUsuario!"; 
+}
 
+
+/* if(!funcionesLogin::estarLogeado()){
+ */
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -19,9 +23,9 @@ if(!funcionesLogin::estarLogeado()){
     <header>
         <nav >
             <div id="primer">
-                    <div>
-                        <img src="./imagenes/circula.jpg" alt=" ">
-                    </div>
+                    <!-- <div>
+                        <img  src="./imagenes/circula.jpg" alt=" ">
+                    </div> -->
                     <div id="deBtn">
                         <div>
                         <a href="?menu=login" class="btn">Login </a>
@@ -47,14 +51,14 @@ if(!funcionesLogin::estarLogeado()){
     </html>
     <?php
 
-} else {
+/* } else { */
     // El usuario está logueado, puedes mostrar un mensaje o redirigir a otra página si es necesario
 /*     require_once './formularios/alumnoMenu.php';
  */
 
 
 
-}
+/* } */
 ?>
 
 
