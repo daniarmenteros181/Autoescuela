@@ -2,18 +2,43 @@
 
 require_once "db.php";
 
+class dificultadRepositorio {
 
-function meteProductos() {
-    $productos = array(); // Crear un arreglo para almacenar los productos
-    $db = db::entrar();
-    $resultado = $db->query("select * from dificultad");
+    private $conexion;
 
-    // bucle while para recorrer los resultados de la consulta.
-    while ($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
-        $productos[] = $row; // Agregar el producto al arreglo
+    public function __construct($conexion) {
+        $this->conexion = $conexion;
     }
 
-    return $productos; // Devolver el arreglo de productos
+    // Crear una dificultad
+    public function insertarDificultad($nombre) {
+        $sql = "INSERT INTO dificultad (nombre) VALUES (:nombre)";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->bindParam(':nombre', $nombre);
+
+        return $stmt->execute();
+    }
+
+    // Actualizar una dificultad
+    public function actualizarDificultad($id, $nombre) {
+        $sql = "UPDATE dificultad SET nombre = :nombre WHERE id = :id";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':nombre', $nombre);
+
+        return $stmt->execute();
+    }
+
+    // Borrar una dificultad
+    public function borrarDificultad($id) {
+        $sql = "DELETE FROM dificultad WHERE id = :id";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->bindParam(':id', $id);
+
+        return $stmt->execute();
+    }
 }
 
 ?>
+
+
