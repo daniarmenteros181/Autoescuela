@@ -14,13 +14,13 @@ window.addEventListener("load", function () {
     function comenzar() {
         btnComenzar.style.display = "none";
 
-        fetch("plantilla/pregunta.html").then(x => x.text()).then(y => {
+        fetch("examen/plantilla/pregunta.html").then(x => x.text()).then(y => {
             var contenedor = document.createElement("div");
             contenedor.innerHTML = y;
             var pregunta = contenedor.querySelector(".pregunta");
     
 
-            fetch("servidor/pregunta.json").then(x => x.json()).then(y => {
+            fetch("examen/servidor/pregunta.json").then(x => x.json()).then(y => {
 
                 preguntas = y.examen[0].pregunta;
                 

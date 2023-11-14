@@ -76,8 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 confirmarAlumnos::llamada();
 */
- require_once '../cargador.php';
-cargador::autocargar();
+
 
 class ConfirmarAlumnos {
     
@@ -88,8 +87,8 @@ class ConfirmarAlumnos {
     }
 
     public function mostrarUsuariosSinRol() {
-        $this->iniciarSesion();
-
+/*         $this->iniciarSesion();
+ */
         if ($this->estarLogeado()) {
            // echo "¡Bienvenido, $nombreUsuario!";
 
@@ -132,9 +131,9 @@ class ConfirmarAlumnos {
         }
     }
 
-    private function iniciarSesion() {
+    /* private function iniciarSesion() {
         sesion::iniciaSesion();
-    }
+    } */
 
     private function estarLogeado() {
         return funcionesLogin::estarLogeado();

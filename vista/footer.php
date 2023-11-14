@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./estilos/estilosPrincipal.css">
     <title>Document</title>
 </head>
-<body>
+<body> -->
 
 <footer>
     <div class="footer-content">
@@ -29,5 +29,5 @@
 </footer>
 
     
-</body>
-</html>
+<!-- </body>
+</html> -->

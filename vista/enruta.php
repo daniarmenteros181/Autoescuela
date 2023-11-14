@@ -36,6 +36,12 @@
     }if ($_GET['menu']=="hacerExam"){
         require_once './examen/index.html';
 
+    }if ($_GET['menu']=="adminitrar"){
+        require_once './formularios/confirmarAlumnos.php';
+
+    }if ($_GET['menu']=="hacerExam"){
+        require_once './examen/index.html';
+
     }
 }else {
     // Si no se proporciona el parámetro 'menu', carga la sección de "inicio" por defecto

@@ -28,7 +28,7 @@ class registro{
         
                     if ($exito) {
                         // Redirige a la página de inicio de sesión u otra página según tus necesidades.
-                        header('Location: http://autoescueladaniels.com/formularios/login.php');
+                        header('Location: ?menu=inicio');
                         exit();
                     } else {
                         // Manejo de errores si la inserción falla.
@@ -43,32 +43,19 @@ class registro{
         
             if(isset($_POST["inicio"])){
                 header('Location: http://autoescueladaniels.com/formularios/login.php?');
-        
-        
-            }
-            
+                
+            }           
             
         }
 
-
     }
-
-
 
 }
 
 registro::creacion();
 
 
-
-
-
-
-
 ?>
-
-
-
 
 
 <!DOCTYPE html>
@@ -80,26 +67,19 @@ registro::creacion();
 </head>
 <body>
     <h1>Registro de Usuario</h1>
-    <form action="registro.php" method="POST" enctype="multipart/form-data" >
+    <form action="" method="POST" enctype="multipart/form-data" >
         <label for="usuario">Usuario:</label>
         <input type="text" id="nombre" name="nombre" ><br><br>
         
         <label for="contrasena">Contraseña:</label>
         <input type="password" id="contrasena" name="contrasena" ><br><br>
-
       
-
-        
-
         <input type="submit" name="crearCuenta" value="Crear cuenta">
         <br>
 
         <a href="?menu=login">Inicio sesion</a>
 
 
-        
-<!--         <input type="submit" name="inicio" value="Iniciar sesion ">
- -->
     </form>
 </body>
 </html>

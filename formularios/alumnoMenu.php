@@ -70,7 +70,7 @@ alumnoMenu::llamada();
         <ul>
             <li><a href="?menu=notasVer">Ver Resultados</a></li>
             <li class="dropdown">
-                <a href="../examen/">Hacer Examen</a>
+                <a href="?menu=hacerExam">Hacer Examen</a>
 <!--                 <a href="?menu=hacerExam">Hacer Examen</a>
  -->
                 <div class="dropdown-content">

@@ -79,7 +79,7 @@ adminMenu::llamada();
                 </div>
             </li>
             <li><a href="administrarExamenes.php">Administrar Exámenes</a></li>
-            <li><a href="confirmarAlumnos.php">Verificar Alumnos</a></li>
+            <li><a href="?menu=adminitrar">Verificar Alumnos</a></li>
             <li><input type="submit" class="cierre" value="out" name="out"></li>
 
         </ul>
