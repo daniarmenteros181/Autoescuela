@@ -3,8 +3,7 @@
 sesion::iniciaSesion();
 if(funcionesLogin::estarLogeado()){
 
-$nombreUsuario = sesion::leerSesion('nombreUsuario');
-echo "¡Bienvenido, $nombreUsuario!";
+
 
 
 ?>
@@ -35,6 +34,13 @@ echo "¡Bienvenido, $nombreUsuario!";
                         <div>
                         <a href="?menu=inicio" class="btn">Inicio</a>
 
+                        </div>
+                        <div id="quien">
+                        <?php
+
+                        $nombreUsuario = sesion::leerSesion('nombreUsuario');
+                        echo "¡Bienvenido, $nombreUsuario!";
+                        ?>
                         </div>
                     </div>
             </div>         
