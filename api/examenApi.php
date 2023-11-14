@@ -3,7 +3,13 @@
 {
 
 } */
+header( "Access-Control-Allow-Origin: *" );
+
+
 require_once('../repositorio/db.php'); // Asegúrate de proporcionar la ruta correcta
+
+
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_GET['id_examen'])) {
@@ -68,6 +74,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // Método no permitido
     echo json_encode(['error' => 'Método no permitido']);
 }
+
+
+
+
+
+
 /* elseif ($_SERVER['REQUEST_METHOD']=='DELETE')
 {
 

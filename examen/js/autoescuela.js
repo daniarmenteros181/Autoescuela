@@ -15,16 +15,17 @@ window.addEventListener("load", function () {
         btnComenzar.style.display = "none";
         
         fetch("examen/plantilla/pregunta.html").then(x => x.text()).then(y => {
-        //fetch("http://automenu.com/examenApi.php").then(x => x.text()).then(y => {
             var contenedor = document.createElement("div");
             contenedor.innerHTML = y;
             var pregunta = contenedor.querySelector(".pregunta");
     
-            //fetch("http://automenu.com/preguntaApi.php").then(x => x.json()).then(y => {
-            fetch("examen/servidor/pregunta.json").then(x => x.json()).then(y => {
+            fetch("http://automenu.com/examenApi.php?id_examen=2").then(x => x.json()).then(y => {
+            //fetch("examen/servidor/pregunta.json").then(x => x.json()).then(y => {
 
-                preguntas = y.examen[0].pregunta;
-                
+/*                 preguntas = y.examen[0].pregunta;
+ */                
+                preguntas = y.preguntas;
+
 
                 // Crear preguntas ocultas excepto la primera
                 for (var i = 0; i < preguntas.length; i++) {
@@ -102,9 +103,13 @@ window.addEventListener("load", function () {
         //var id=pregActual.id;
         pregDiv.getElementsByClassName("enunciado")[0].innerHTML = pregActual.enunciado;
         pregDiv.getElementsByClassName("url")[0].setAttribute("src", pregActual.url);
-        pregDiv.getElementsByClassName("res1")[0].innerHTML = pregActual.respuesta[0].res1;
+        /* pregDiv.getElementsByClassName("res1")[0].innerHTML = pregActual.respuesta[0].res1;
         pregDiv.getElementsByClassName("res2")[0].innerHTML = pregActual.respuesta[0].res2;
-        pregDiv.getElementsByClassName("res3")[0].innerHTML = pregActual.respuesta[0].res3;
+        pregDiv.getElementsByClassName("res3")[0].innerHTML = pregActual.respuesta[0].res3; */
+        pregDiv.getElementsByClassName("res1")[0].innerHTML = pregActual.respuesta.res1;
+        pregDiv.getElementsByClassName("res2")[0].innerHTML = pregActual.respuesta.res2;
+        pregDiv.getElementsByClassName("res3")[0].innerHTML = pregActual.respuesta.res3;
+
 
         pregDiv.getElementsByClassName("borrar")[0].onclick=function()
         {
