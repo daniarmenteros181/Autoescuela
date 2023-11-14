@@ -3,9 +3,6 @@
 sesion::iniciaSesion();
 if(funcionesLogin::estarLogeado()){
 
-
-
-
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -17,35 +14,41 @@ if(funcionesLogin::estarLogeado()){
     </head>
     <body>
     <header>
-        <nav >
+<!--         <nav >
+ -->       
+            <div id="seg">
+                <img src="./imagenes/olalla_logo.jpg" id="ola" alt="">
+            </div>     
             <div id="primer">
                     <!-- <div>
                         <img  src="./imagenes/circula.jpg" alt=" ">
                     </div> -->
                     <div id="deBtn">
                         <div>
-                        <a href="" class="btn">Out </a>
+                         <a href="?menu=inicio" class="btn">Cerrar Sesion </a>
 
-                        </div>
-                        <div>
-                        <a href="?menu=registro" class="btn">Registrarse</a>
 
-                        </div>
+                        </div>               
                         <div>
                         <a href="?menu=inicio" class="btn">Inicio</a>
 
                         </div>
-                        <div id="quien">
+                        
+                    </div>
+            </div>
+            <div id="ter">
+            <div id="quien">
                         <?php
 
                         $nombreUsuario = sesion::leerSesion('nombreUsuario');
                         echo "¡Bienvenido, $nombreUsuario!";
                         ?>
-                        </div>
-                    </div>
-            </div>         
-        </nav>     
-    </header>    
+            </div>
+
+            </div>   
+                  
+<!--         </nav>     
+ -->    </header>    
     </body>
     </html>
  <?php
@@ -62,11 +65,13 @@ if(funcionesLogin::estarLogeado()){
     </head>
     <body>
     <header>
-        <nav >
+<!--         <nav >
+ -->        <div id="seg">
+                <img src="./imagenes/olalla_logo.jpg" id="ola" alt="">
+            </div>
+
             <div id="primer">
-                    <!-- <div>
-                        <img  src="./imagenes/circula.jpg" alt=" ">
-                    </div> -->
+                   
                     <div id="deBtn">
                         <div>
                         <a href="?menu=login" class="btn">Login </a>
@@ -82,9 +87,12 @@ if(funcionesLogin::estarLogeado()){
                         </div>
                     </div>
             </div>
+
+            <div id="ter">
+            </div> 
             
-        </nav>
-    </header>
+<!--         </nav>
+ -->    </header>
 
     </body>
     </html>

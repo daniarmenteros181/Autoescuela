@@ -20,7 +20,6 @@ window.addEventListener("load", function () {
             var pregunta = contenedor.querySelector(".pregunta");
     
             fetch("http://automenu.com/examenApi.php?id_examen=2").then(x => x.json()).then(y => {
-            //fetch("examen/servidor/pregunta.json").then(x => x.json()).then(y => {
 
 /*                 preguntas = y.examen[0].pregunta;
  */                
