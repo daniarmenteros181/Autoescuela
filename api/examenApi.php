@@ -11,7 +11,7 @@ require_once('../repositorio/db.php'); // Asegúrate de proporcionar la ruta cor
 
 
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_GET['id_examen'])) {
         $idExamen = intval($_GET['id_examen']);
         try {
@@ -73,7 +73,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 } else {
     // Método no permitido
     echo json_encode(['error' => 'Método no permitido']);
-}
+} 
+
+
+/* if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    // Obtener la conexión a la base de datos utilizando la clase db
+    $conexion = db::entrar();
+
+    // Preparar y ejecutar la consulta para obtener todos los exámenes
+    $query = "SELECT id FROM examen";
+    $statement = $conexion->query($query);
+
+    // Obtener todos los exámenes
+    $examenes = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    // Verificar si se encontraron exámenes
+    if ($examenes) {
+        // Convertir a JSON y enviar la respuesta
+        header('Content-type: application/json');
+        echo json_encode(['examenes' => $examenes]);
+    } else {
+        // Si no se encuentran exámenes, puedes manejarlo según tus necesidades
+        header('HTTP/1.0 404 Not Found');
+        echo json_encode(['error' => 'No se encontraron exámenes']);
+    }
+} else {
+    // Método no permitido
+    header('HTTP/1.0 405 Method Not Allowed');
+    echo json_encode(['error' => 'Método no permitido']);
+} */
 
 
 /* elseif ($_SERVER['REQUEST_METHOD']=='DELETE')

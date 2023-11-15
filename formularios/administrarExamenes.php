@@ -5,12 +5,7 @@ class administrarExamenes{
 
 public static function llamada(){
 
-//sesion::iniciaSesion();
-
 $nombreUsuario = sesion::leerSesion('nombreUsuario');
-
-
-//$nombreUsuario = isset($_GET['nombreUsuario']) ? $_GET['nombreUsuario'] : "";
 
 
 

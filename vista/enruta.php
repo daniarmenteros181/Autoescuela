@@ -42,7 +42,19 @@
     }if ($_GET['menu']=="hacerExam"){
         require_once './examen/index.html';
 
+    }if ($_GET['menu']=="adminExamen"){
+        require_once './formularios/administrarExamenes.php';
+
+    }if ($_GET['menu']=="crearPreg"){
+        require_once './formularios/crearPregunta.php';
+
+    }if ($_GET['menu']=="leerPreg"){
+        require_once './formularios/leerPreguntas.php';
+
     }
+    
+    
+    
 }else {
     // Si no se proporciona el parámetro 'menu', carga la sección de "inicio" por defecto
     require_once './formularios/inicio.php';
