@@ -2,9 +2,6 @@
 
 class funcionesLogin{
 
-
-
-
 #esta logueado(le pregunta a sesion si tiene clave que se llama users)
     public static function estarLogeado(){
 
@@ -19,9 +16,6 @@ class funcionesLogin{
 
 // Función para verificar el inicio de sesión en la base de datos
  public static function existeUsuario($nombreUsuario, $contra) {
-    //sesion::iniciaSesion();
-
-
     
     // Conectar a la base de datos utilizando la clase db
     $conexion = db::entrar();
@@ -37,14 +31,9 @@ class funcionesLogin{
 
 
 
-
     // Verificar si se encontró un usuario con ese nombre y contraseña
     if ($usuario) {
-        // Iniciar la sesión si es necesario
-
          $rol = $usuario['rol'];
-         //sesion::iniciaSesion();
-
 
         return $rol;
     }
@@ -53,11 +42,6 @@ class funcionesLogin{
 }
 
 public static function login($nombreUsuario, $contra) {
-            /* sesion::iniciaSesion();
-            self::iniciaSesion(); */
-
-
-    
 
     if (isset($_POST["entrar"])) {
         $rol = funcionesLogin::existeUsuario($nombreUsuario, $contra);
@@ -74,6 +58,7 @@ public static function login($nombreUsuario, $contra) {
 
             } elseif ($rol === 'profesor') {
                 header('Location:?menu=profesor');
+                
             } elseif ($rol === 'alumno') {
                header('Location:?menu=alumno');
             } else {

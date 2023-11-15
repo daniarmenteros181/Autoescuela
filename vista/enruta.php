@@ -33,16 +33,19 @@
     }if ($_GET['menu']=="administrarExam"){
         require_once './formularios/administrarExamenes.php';
 
-    }if ($_GET['menu']=="hacerExam"){
+    } /* if ($_GET['menu']=="hacerExam"){
         require_once './examen/index.html';
 
-    }if ($_GET['menu']=="adminitrar"){
+    } */ if ($_GET['menu']=="adminitrar"){
         require_once './formularios/confirmarAlumnos.php';
 
-    }if ($_GET['menu']=="hacerExam"){
+    } if ($_GET['menu']=="elegirExam"){
         require_once './examen/index.html';
 
-    }if ($_GET['menu']=="adminExamen"){
+     }  if ($_GET['menu']=="hacerExam"){
+        require_once './formularios/elegirExamAlum.php';
+
+     }if ($_GET['menu']=="adminExamen"){
         require_once './formularios/administrarExamenes.php';
 
     }if ($_GET['menu']=="crearPreg"){
@@ -50,6 +53,9 @@
 
     }if ($_GET['menu']=="leerPreg"){
         require_once './formularios/leerPreguntas.php';
+
+    }if ($_GET['menu']=="crearExam"){
+        require_once './formularios/crearExamen.php';
 
     }
     
@@ -61,6 +67,3 @@
 }
 
 ?>
-
-
-

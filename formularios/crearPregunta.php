@@ -5,13 +5,17 @@ class crearPregunta{
 
 public static function llamada(){
 
+    mostrarMenu::mostrarMenuAdmin();
+
+
+
 $nombreUsuario = sesion::leerSesion('nombreUsuario');
 
 
 if (funcionesLogin::estarLogeado()) {
     // El usuario está logueado, muestra el contenido protegido aquí.
-   echo "¡Bienvenido, $nombreUsuario!";
-   sesion::guardaSesion('nombreUsuario',$_SESSION["nombreUsuario"]=$nombreUsuario);
+/*    echo "¡Bienvenido, $nombreUsuario!";
+ */   sesion::guardaSesion('nombreUsuario',$_SESSION["nombreUsuario"]=$nombreUsuario);
 
 } else {
     // El usuario no está logueado, muestra un mensaje o redirige a la página de inicio de sesión.
@@ -38,7 +42,7 @@ public static function insertarPreguntaEnBaseDeDatos() {
     $respuesta3 = $_POST["respuesta3"];
     $respuestaCorrec = $_POST["respuestaCorrec"];
     $url = $_POST["url"];
-    $tipo_url = $_POST["tipo_url"]; // Nuevo campo
+    $tipo_url = $_POST["tipo_url"]; 
     $dificultad = $_POST["dificultad"];
     $categoria = $_POST["categoria"];
 
@@ -61,7 +65,7 @@ public static function insertarPreguntaEnBaseDeDatos() {
         $stmt->bindParam(':respuesta3', $respuesta3);
         $stmt->bindParam(':respuestaCorrec', $respuestaCorrec);
         $stmt->bindParam(':url', $url);
-        $stmt->bindParam(':tipo_url', $tipo_url); // Nuevo campo
+        $stmt->bindParam(':tipo_url', $tipo_url);
         $stmt->bindParam(':dificultad', $dificultad);
         $stmt->bindParam(':categoria', $categoria);
 
@@ -86,11 +90,15 @@ crearPregunta::llamada();
 <html>
 <head>
     <title>Crear Pregunta</title>
-<!--     <link rel="stylesheet" type="text/css" href="../estilos/estilosMenu.css">
- -->
+      <link rel="stylesheet" type="text/css" href="../estilos/estilosPreguntas.css">
+ 
+     
 </head>
 <body>
-       
+    
+<div class="pregunta-container">
+
+
  <form id="crearPreguntaForm" action="" method="post">
 
         <label for="enunciado">Enunciado:</label>
@@ -129,6 +137,7 @@ crearPregunta::llamada();
     <input type="submit" value="out" name="out">
 
     </form>
+    </div>
 
 
 </body>

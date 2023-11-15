@@ -11,7 +11,7 @@ require_once('../repositorio/db.php'); // Asegúrate de proporcionar la ruta cor
 
 
 
- if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+   if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_GET['id_examen'])) {
         $idExamen = intval($_GET['id_examen']);
         try {
@@ -73,10 +73,10 @@ require_once('../repositorio/db.php'); // Asegúrate de proporcionar la ruta cor
 } else {
     // Método no permitido
     echo json_encode(['error' => 'Método no permitido']);
-} 
+}  
+ 
 
-
-/* if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+ /*  if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // Obtener la conexión a la base de datos utilizando la clase db
     $conexion = db::entrar();
 
@@ -101,7 +101,7 @@ require_once('../repositorio/db.php'); // Asegúrate de proporcionar la ruta cor
     // Método no permitido
     header('HTTP/1.0 405 Method Not Allowed');
     echo json_encode(['error' => 'Método no permitido']);
-} */
+}   */
 
 
 /* elseif ($_SERVER['REQUEST_METHOD']=='DELETE')

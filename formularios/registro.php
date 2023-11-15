@@ -77,7 +77,7 @@ registro::creacion();
         <input type="submit" name="crearCuenta" value="Crear cuenta">
         <br>
 
-        <a href="?menu=login">Inicio sesion</a>
+        <a href="?menu=login">Login </a>
 
 
     </form>

@@ -2,16 +2,18 @@
 
 
 class leerPreguntas{
+    
 
 public static function llamada(){
+
+    mostrarMenu::mostrarMenuAdmin();
 
 $nombreUsuario = sesion::leerSesion('nombreUsuario');
 
 
 if (funcionesLogin::estarLogeado()) {
     // El usuario está logueado, muestra el contenido protegido aquí.
-   echo "¡Bienvenido, $nombreUsuario!";
-   sesion::guardaSesion('nombreUsuario',$_SESSION["nombreUsuario"]=$nombreUsuario);
+    sesion::guardaSesion('nombreUsuario',$_SESSION["nombreUsuario"]=$nombreUsuario);
 
    self::leerPreguntaEnBaseDeDatos();
 
@@ -30,6 +32,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Llamada a la función para insertar en la base de datos
     self::leerPreguntaEnBaseDeDatos();
 }
+
+    // Verifica si se presionó el botón "borrar"
+    if (isset($_POST["out"])) {
+       
+       sesion::cierraSesion();
+   
+       header('Location: ?menu=login');
+       
+    
+   }
 }
 }
 
@@ -51,12 +63,23 @@ public static function leerPreguntaEnBaseDeDatos() {
          // Obtener todas las filas resultantes
          $preguntas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-         // Mostrar las preguntas
+        /*  // Mostrar las preguntas
          echo "<h2>Preguntas:</h2>";
          foreach ($preguntas as $pregunta) {
              echo "<p>Enunciado: " . $pregunta['enunciado'] . "</p>";
              // Mostrar otros campos según sea necesario
-         }
+         } */
+         echo "<div class='preguntas-container'>";
+        echo "<h2 class='preguntas-titulo'>Preguntas:</h2>";
+
+        foreach ($preguntas as $pregunta) {
+        echo "<div class='pregunta'>";
+        echo "<p class='enunciado'>" . nl2br($pregunta['enunciado']) . "</p>";
+        // Otros campos y clases según sea necesario
+        echo "</div>";
+        }
+
+        echo "</div>";
      } catch (PDOException $e) {
          echo "Error al leer las preguntas: " . $e->getMessage();
      }
@@ -74,9 +97,8 @@ leerPreguntas::llamada();
 <html>
 <head>
     <title>Crear Pregunta</title>
-<!--     <link rel="stylesheet" type="text/css" href="../estilos/estilosMenu.css">
- -->
-</head>
+     <link rel="stylesheet" type="text/css" href="../estilos/estilosPreguntas.css">
+ </head>
 <body>
        
  <form id="crearPreguntaForm" action="" method="post">
@@ -84,9 +106,10 @@ leerPreguntas::llamada();
 
         
     
-    <input type="submit" value="out" name="out">
+<!--     <input type="submit" value="out" name="out">
 
     <a href="?menu=crearPreg">Crear Preguntas</a>
+     -->
 
 
 
