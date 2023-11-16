@@ -5,20 +5,13 @@ class alumnoMenu{
 public static function llamada(){
 
     mostrarMenu::mostrarMenuAlumno();
+    $nombreUsuario = sesion::leerSesion('nombreUsuario');
 
-//sesion::iniciaSesion();
-
-$nombreUsuario = sesion::leerSesion('nombreUsuario');
-//echo $nombreUsuario;
-
-//$nombreUsuario = isset($_GET['nombreUsuario']) ;
 
 
 
 if (funcionesLogin::estarLogeado()) {
     // El usuario está logueado, muestra el contenido protegido aquí.
-/*    echo "¡Bienvenido, $nombreUsuario!";
- */
 
    //sesion::guardaSesion('nombreUsuario',funcionesLogin::crearUsuario());
    sesion::guardaSesion('nombreUsuario',$_SESSION["nombreUsuario"]=$nombreUsuario);

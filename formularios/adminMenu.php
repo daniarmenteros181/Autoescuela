@@ -12,18 +12,15 @@ $nombreUsuario = sesion::leerSesion('nombreUsuario');
 
 if (funcionesLogin::estarLogeado()) {
     // El usuario está logueado, muestra el contenido protegido aquí.
-       //sesion::guardaSesion('nombreUsuario',$_SESSION["nombreUsuario"]=$nombreUsuario);
+    sesion::guardaSesion('nombreUsuario',$_SESSION["nombreUsuario"]=$nombreUsuario);
 
-/*    echo "¡Bienvenido, $nombreUsuario!";
- */
-   //sesion::guardaSesion('nombreUsuario',funcionesLogin::crearUsuario());
 
 
 } else {
     // El usuario no está logueado, muestra un mensaje o redirige a la página de inicio de sesión.
     echo "mal, usuario!";
 
-   header('Location: http://autoescueladaniels.com/formularios/recuperarContrasenia.php?');
+   header('Location: ?menu=olvido');
 
 }
 
