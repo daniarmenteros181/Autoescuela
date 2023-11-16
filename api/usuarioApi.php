@@ -1,6 +1,5 @@
 <?php
 header( "Access-Control-Allow-Origin: *" );
-
 require_once('../repositorio/db.php'); // Asegúrate de proporcionar la ruta correcta
 
 
@@ -46,37 +45,32 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
 }
 
 
-// Obtener los datos del usuario desde la base de datos
-if ($_SERVER['REQUEST_METHOD'] == 'GET') 
-{
-    //$id = 3; // Esto podría ser obtenido de $_GET['id'] después de validar y sanitizar
-    $id = isset($_GET['id']) ? intval($_GET['id']) : 5;//garantiza que $id será un número entero.
-
-
+// Obtener todos los usuarios desde la base de datos
+elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
     try {
         $conexion = db::entrar();
-        $query = "SELECT id, nombre, rol FROM usuario WHERE id = :id";
+        $query = "SELECT id, nombre, rol FROM usuario";
         $statement = $conexion->prepare($query);
-        $statement->bindParam(':id', $id, PDO::PARAM_INT);
         $statement->execute();
 
-        $usuario = $statement->fetch(PDO::FETCH_ASSOC);
+        $usuarios = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        if ($usuario) {
+        if ($usuarios) {
             // Convertir a JSON y enviar la respuesta
             header('Content-type: application/json');
-            echo json_encode($usuario);
+            echo json_encode(['usuarios' => $usuarios]);
         } else {
-            // Si no se encuentra el usuario, puedes manejarlo de acuerdo a tus necesidades
+            // Si no se encuentran usuarios, puedes manejarlo de acuerdo a tus necesidades
             header('HTTP/1.0 404 Not Found');
-            echo json_encode(array('error' => 'Usuario no encontrado'));
+            echo json_encode(['error' => 'No se encontraron usuarios']);
         }
     } catch (PDOException $e) {
         // Manejar errores de la base de datos según tus necesidades
         header('HTTP/1.1 500 Internal Server Error');
-        echo json_encode(array('error' => 'Error en la base de datos: ' . $e->getMessage()));
+        echo json_encode(['error' => 'Error en la base de datos: ' . $e->getMessage()]);
     }
 }
+
 
 //Para borrar
 elseif ($_SERVER['REQUEST_METHOD']=='DELETE')
@@ -121,7 +115,7 @@ elseif ($_SERVER['REQUEST_METHOD']=='DELETE')
 
 
  //Para actualizar
-/* if ($_SERVER['REQUEST_METHOD']=='PUT')
+elseif ($_SERVER['REQUEST_METHOD']=='PUT')
 {
     // Obtener los datos del cuerpo de la solicitud
     $datos_json = file_get_contents('php://input');
@@ -167,53 +161,5 @@ elseif ($_SERVER['REQUEST_METHOD']=='DELETE')
     }
 
  }
- */
 
-
-//Este con objeto stdClass en lugar de un array asociativo 
- if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
-    // Obtener los datos del cuerpo de la solicitud
-    $datos_json = file_get_contents('php://input');
-    $datos = json_decode($datos_json);
-
-    // Verificar si los datos necesarios están presentes
-    if (isset($datos->id) && isset($datos->nombre) && isset($datos->rol)) {
-        try {
-            $conexion = db::entrar();
-
-            // Preparar la consulta para actualizar al usuario
-            $query = "UPDATE usuario SET nombre = :nombre, rol = :rol WHERE id = :id";
-            $statement = $conexion->prepare($query);
-
-            // Vincular parámetros
-            $statement->bindParam(':id', $datos->id, PDO::PARAM_INT);
-            $statement->bindParam(':nombre', $datos->nombre, PDO::PARAM_STR);
-            $statement->bindParam(':rol', $datos->rol, PDO::PARAM_STR);
-
-            // Ejecutar la consulta
-            $statement->execute();
-
-            // Verificar si se actualizó algún usuario
-            $filas_afectadas = $statement->rowCount();
-            if ($filas_afectadas > 0) {
-                // Devolver una respuesta exitosa
-                header('Content-type: application/json');
-                echo json_encode(array('mensaje' => 'Usuario actualizado exitosamente'));
-            } else {
-                // Si no se encuentra el usuario, puedes manejarlo de acuerdo a tus necesidades
-                header('HTTP/1.0 404 Not Found');
-                echo json_encode(array('error' => 'Usuario no encontrado'));
-            }
-        } catch (PDOException $e) {
-            // Manejar errores de la base de datos según tus necesidades
-            header('HTTP/1.1 500 Internal Server Error');
-            echo json_encode(array('error' => 'Error en la base de datos: ' . $e->getMessage()));
-        }
-    } else {
-        // Datos incompletos, devolver un mensaje de error
-        header('HTTP/1.0 400 Bad Request');
-        echo json_encode(array('error' => 'Datos incompletos'));
-    }
-}
- 
  
