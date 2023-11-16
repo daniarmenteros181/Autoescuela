@@ -20,4 +20,4 @@ var mensajeCreacion = document.getElementById('mensajeCreacion');
 setTimeout(function() {
     // Oculta el mensaje (puedes cambiar 'display' a 'none' si prefieres eliminarlo completamente del DOM)
     mensajeCreacion.style.display = 'none';
-}, 5000); // 5000 milisegundos = 5 segundos
+}, 3000); // 5000 milisegundos = 5 segundos

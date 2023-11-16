@@ -69,6 +69,15 @@
 footer{
     display: none;
 }
+#mensajeCreacion {
+    background-color: #4CAF50; /* Color de fondo verde */
+    color: white; /* Color del texto blanco */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Esquinas redondeadas */
+    text-align: center; /* Alineación del texto al centro */
+    margin-top: 20px; /* Margen superior para separar del contenido anterior */
+
+}
 
 
 

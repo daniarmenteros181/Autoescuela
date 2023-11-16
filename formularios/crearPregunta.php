@@ -78,7 +78,7 @@ public static function insertarPreguntaEnBaseDeDatos() {
         // Ejecutar la consulta
         $stmt->execute();
 
-        echo "Pregunta creada correctamente";
+        echo "<h3 id='mensajeCreacion'>Pregunta creada correctamente:</h3>";
     } catch (PDOException $e) {
         echo "Error al crear la pregunta: " . $e->getMessage();
     }
@@ -97,6 +97,8 @@ crearPregunta::llamada();
 <head>
     <title>Crear Pregunta</title>
       <link rel="stylesheet" type="text/css" href="../estilos/estilosPreguntas.css">
+       <script src="js/creacionExam.js"></script>
+ 
  
      
 </head>
