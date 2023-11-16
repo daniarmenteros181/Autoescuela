@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.pregunta-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+}
+
+.preguntas-container {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.preguntas-titulo {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.pregunta {
+    display: flex; /* O display: inline-flex; según tu preferencia */
+    align-items: center; /* Alinea verticalmente los elementos en el centro */
+    margin-bottom: 15px;
+}
+
+.enunciado {
+    margin-bottom: 10px;
+}
+
+.checkbox-pregunta {
+    margin-right: 10px;
+}
+
+#selectUsuario {
+    margin-bottom: 15px;
+}
+
+button {
+    margin-right: 10px;
+}
+
+footer{
+    display: none;
+}
+
+#mensajeCreacion {
+    background-color: #4CAF50; /* Color de fondo verde */
+    color: white; /* Color del texto blanco */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Esquinas redondeadas */
+    text-align: center; /* Alineación del texto al centro */
+    margin-top: 20px; /* Margen superior para separar del contenido anterior */
+
+}

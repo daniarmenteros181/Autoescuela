@@ -5,6 +5,9 @@ class administrarExamenes{
 
 public static function llamada(){
 
+    mostrarMenu::mostrarMenuAdmin();
+
+
 $nombreUsuario = sesion::leerSesion('nombreUsuario');
 
 

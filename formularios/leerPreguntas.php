@@ -104,13 +104,6 @@ leerPreguntas::llamada();
  <form id="crearPreguntaForm" action="" method="post">
 
 
-        
-    
-<!--     <input type="submit" value="out" name="out">
-
-    <a href="?menu=crearPreg">Crear Preguntas</a>
-     -->
-
 
 
     </form>

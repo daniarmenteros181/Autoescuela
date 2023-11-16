@@ -36,10 +36,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 self::asignarPreguntaAExamen($idPregunta, $idExamen);
             }
     
-            echo "Examen creado y preguntas asignadas correctamente";
         } else {
             echo "Examen creado pero no se seleccionaron preguntas";
         }
+    }
+    // Verifica si se presionó el botón "borrar"
+    if (isset($_POST["out"])) {
+        sesion::cierraSesion();
+        header('Location: ?menu=login');
     }
     
 }
@@ -65,7 +69,8 @@ public static function crearExamenEnBaseDeDatos($idUser) {
         
         $idExamen = $conexion->lastInsertId();
 
-        echo "Examen creado correctamente";
+        echo "<h3 id='mensajeCreacion'>Examen creado correctamente:</h3>";
+
         return $idExamen;
 
     } catch (PDOException $e) {
@@ -87,7 +92,6 @@ public static function asignarPreguntaAExamen($idExamen,$idPregunta) {
         $stmtInsertRelacion->bindParam(':idExamen', $idExamen);
         $stmtInsertRelacion->execute();
 
-        echo "Pregunta asignada al examen correctamente";
     } catch (PDOException $e) {
         echo "Error al asignar la pregunta al examen: " . $e->getMessage();
     }
@@ -110,29 +114,25 @@ public static function leerPreguntaEnBaseDeDatos() {
          $preguntas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
          echo "<div class='preguntas-container'>";
-        echo "<h2 class='preguntas-titulo'>Preguntas:</h2>";
+            echo "<h2 class='preguntas-titulo'>Preguntas:</h2>";
 
-        echo "<form id='seleccionarPreguntasForm' action='' method='post'>";
+            echo "<form id='seleccionarPreguntasForm' action='' method='post'>";
 
-        foreach ($preguntas as $pregunta) {
-        echo "<div class='pregunta'>";
-        echo "<p class='enunciado'>" . nl2br($pregunta['enunciado']) . "</p>";
-        echo "<input type='checkbox' name='preguntas_seleccionadas[]' value='{$pregunta['id']}' />";
+            foreach ($preguntas as $pregunta) {
+                echo "<div class='pregunta' id='pregunta-{$pregunta['id']}'>";
+                echo "<input type='checkbox' class='checkbox-pregunta' name='preguntas_seleccionadas[]' value='{$pregunta['id']}' />";
+                echo "<p class='enunciado'>" . nl2br($pregunta['enunciado']) . "</p>";
+                echo "</div>";
+            }
 
-        
+           
 
-        echo "</div>";
+
+            echo "</div>";
+        } catch (PDOException $e) {
+            echo "Error al leer las preguntas: " . $e->getMessage();
         }
-        echo "<button type='button' onclick='marcarTodas()'>Marcar Todas</button>";
-        echo "<button type='button' onclick='desmarcarTodas()'>Desmarcar Todas</button>";
-
-        echo "<button type='submit' name='borrarPreguntas'>Borrar Preguntas Seleccionadas</button>";
-
-        echo "</div>";
-     } catch (PDOException $e) {
-         echo "Error al leer las preguntas: " . $e->getMessage();
-     }
- }
+    }
 
  public static function obtenerListaDeUsuarios() {
     try {
@@ -162,54 +162,42 @@ crearExamen::llamada();
 
 
 ?>
-<script>
-    function marcarTodas() {
-        var checkboxes = document.querySelectorAll('input[name="preguntas_seleccionadas[]"]');
-        checkboxes.forEach(function(checkbox) {
-            checkbox.checked = true;
-        });
-    }
-
-    function desmarcarTodas() {
-        var checkboxes = document.querySelectorAll('input[name="preguntas_seleccionadas[]"]');
-        checkboxes.forEach(function(checkbox) {
-            checkbox.checked = false;
-        });
-    }
-</script>
+  
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Crear Examen</title>
-    <link rel="stylesheet" type="text/css" href="../estilos/estilosPreguntas.css">
+    <link rel="stylesheet" type="text/css" href="../estilos/estilosCrearExamen.css">
+    <script src="js/creacionExam.js"></script>
 
 </head>
 <body>
 
 <div class="pregunta-container">
-<form id="crearExamenForm" action="" method="post">
-    <?php
-    // Obtén las preguntas de la base de datos
-    $preguntas = crearExamen::leerPreguntaEnBaseDeDatos();
+    <form id="crearExamenForm" action="" method="post">
+        <?php
+        // Obtén las preguntas de la base de datos
+        $preguntas = crearExamen::leerPreguntaEnBaseDeDatos();
 
-    // Obtén la lista de usuarios
-    $usuarios = crearExamen::obtenerListaDeUsuarios(); // Debes implementar esta función
+        // Obtén la lista de usuarios
+        $usuarios = crearExamen::obtenerListaDeUsuarios(); // Debes implementar esta función
+        echo '</select><br>';
 
-    echo '<label for="selectUsuario">Seleccionar Usuario:</label>';
-    echo '<select id="selectUsuario" name="idUsuario">';
-    foreach ($usuarios as $usuario) {
-        echo '<option value="' . $usuario['id'] . '">' . $usuario['nombre'] . '</option>';
-    }
-    echo '</select><br>';
-    ?>
-    <input type="submit" value="Crear Examen" name="crearExamen">
-    <input type="submit" value="out" name="out">
-</form>
+        echo "<button type='button' onclick='marcarTodas()'>Marcar Todas</button>";
+        echo "<button type='button' onclick='desmarcarTodas()'>Desmarcar Todas</button>";
+        echo '</select><br>';
+        echo '</select><br>';
 
-
-
-
+        echo '<label for="selectUsuario">Seleccionar Usuario:</label>';
+        echo '<select id="selectUsuario" name="idUsuario">';
+        foreach ($usuarios as $usuario) {
+            echo '<option value="' . $usuario['id'] . '">' . $usuario['nombre'] . '</option>';
+        }
+        echo '</select><br>';
+        ?>
+        <input type="submit" value="Crear Examen" name="crearExamen">
+    </form>
 </div>
 
 </body>

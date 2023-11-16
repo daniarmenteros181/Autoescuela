@@ -37,6 +37,15 @@ public static function llamada(){
             // Actualiza el rol del usuario en la base de datos
             self::asignarRolAUsuario($usuarioId, $nuevoRol);
         }
+        // Verifica si se presionó el botón "borrar"
+        if (isset($_POST["out"])) {
+            
+            sesion::cierraSesion();
+
+            header('Location: ?menu=login');
+            
+        
+        }
     }
 
 

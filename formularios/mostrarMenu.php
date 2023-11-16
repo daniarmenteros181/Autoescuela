@@ -7,8 +7,6 @@ class mostrarMenu{
     <html>
     <head>
         <title>Admin</title>
-        <link rel="stylesheet" type="text/css" href="../estilos/estilosMenu.css">
-
     </head>
     <body>
     
@@ -35,7 +33,7 @@ class mostrarMenu{
                 <li><a href="?menu=crearPreg">Crear pregunta</a></li>
                 <li><a href="?menu=leerPreg">Leer preguntas</a></li>
     
-                <li><input type="submit" class="cierre" value="out" name="out"></li>
+                <li><input type="submit" class="cierre" value="Cerrar Sesion" name="out"></li>
     
             </ul>
            
@@ -59,8 +57,6 @@ class mostrarMenu{
 <html>
 <head>
     <title>Alumno</title>
-    <link rel="stylesheet" type="text/css" href="../estilos/estilosMenu.css">
-
 </head>
 <body>
    
@@ -69,8 +65,6 @@ class mostrarMenu{
         <ul>
             <li><a href="?menu=notasVer">Ver Resultados</a></li>
             <li class="dropdown">
-<!--                 <a href="?menu=hacerExam">Hacer Examen</a>
- -->
                 <a href="?menu=hacerExam">Hacer Examen</a>
                 <div class="dropdown-content">
                     <a href="#">Aleatorio</a>
@@ -84,11 +78,12 @@ class mostrarMenu{
                     </div>
                 </div>
             </li>
+            <li><input type="submit" class="cierre" value="Cerrar Sesion" name="out"></li>
+
 
         </ul>
     </div>
     
-    <input type="submit" value="out" name="out">
 
     </form>
 

@@ -105,7 +105,7 @@ footer {
   float: left;
 }
 
-.menu ul li a {
+.menu ul li a  {
   display: block;
   color: white;
   text-align: center;
@@ -166,4 +166,17 @@ footer {
 #quien{
   color: white;
 
+}
+
+.cierre {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px 12px;
+  background-color: #2c6ea0;
+  border: 12px; 
+}
+
+.cierre:hover{
+  background-color: #368fd3;
 }

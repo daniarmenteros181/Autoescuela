@@ -31,6 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Llamada a la función para insertar en la base de datos
     self::insertarPreguntaEnBaseDeDatos();
 }
+
+    // Verifica si se presionó el botón "borrar"
+    if (isset($_POST["out"])) {
+        sesion::cierraSesion();
+        header('Location: ?menu=login');
+    }
 }
 }
 
@@ -131,10 +137,6 @@ crearPregunta::llamada();
         <input type="submit" value="Crear Pregunta" name="crearPregunta">
 
         <a href="?menu=leerPreg">Leer Preguntas</a>
-
-        
-    
-    <input type="submit" value="out" name="out">
 
     </form>
     </div>

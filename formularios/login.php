@@ -10,8 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $nombreUsuario = $_POST["nombre"];
     $contra = $_POST["contra"];
-
-
     funcionesLogin::login($nombreUsuario,$contra);
     
 }
