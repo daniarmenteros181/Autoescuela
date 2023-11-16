@@ -59,8 +59,6 @@
 
     }
     
-    
-    
 }else {
     // Si no se proporciona el parámetro 'menu', carga la sección de "inicio" por defecto
     require_once './formularios/inicio.php';

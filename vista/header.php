@@ -20,9 +20,7 @@ if(funcionesLogin::estarLogeado()){
                 <img src="./imagenes/olalla_logo.jpg" id="ola" alt="">
             </div>     
             <div id="primer">
-                    <!-- <div>
-                        <img  src="./imagenes/circula.jpg" alt=" ">
-                    </div> -->
+                   
                     <div id="deBtn">
                         <div>
                          <a href="?menu=inicio" class="btn">Cerrar Sesion </a>

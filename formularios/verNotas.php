@@ -5,9 +5,7 @@ class verNotas{
 
 public static function llamada(){
 
-//sesion::iniciaSesion();
 
-//$nombreUsuario = isset($_GET['nombreUsuario']) ? $_GET['nombreUsuario'] : "";
 $nombreUsuario = sesion::leerSesion('nombreUsuario');
 
 

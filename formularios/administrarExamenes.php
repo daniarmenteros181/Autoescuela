@@ -67,7 +67,6 @@ administrarExamenes::llamada();
     <form id="miFormulario" method="post" action="">
         
     
-    <input type="submit" value="out" name="out">
 
     </form>
 

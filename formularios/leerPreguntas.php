@@ -28,11 +28,6 @@ if (funcionesLogin::estarLogeado()) {
 // Puedes agregar más contenido y funcionalidad aquí que solo los usuarios logueados puedan ver.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  if (isset($_POST["crearPregunta"])) {
-    // Llamada a la función para insertar en la base de datos
-    self::leerPreguntaEnBaseDeDatos();
-}
-
     // Verifica si se presionó el botón "borrar"
     if (isset($_POST["out"])) {
        
@@ -63,12 +58,6 @@ public static function leerPreguntaEnBaseDeDatos() {
          // Obtener todas las filas resultantes
          $preguntas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        /*  // Mostrar las preguntas
-         echo "<h2>Preguntas:</h2>";
-         foreach ($preguntas as $pregunta) {
-             echo "<p>Enunciado: " . $pregunta['enunciado'] . "</p>";
-             // Mostrar otros campos según sea necesario
-         } */
          echo "<div class='preguntas-container'>";
         echo "<h2 class='preguntas-titulo'>Preguntas:</h2>";
 
@@ -102,9 +91,6 @@ leerPreguntas::llamada();
 <body>
        
  <form id="crearPreguntaForm" action="" method="post">
-
-
-
 
     </form>
 

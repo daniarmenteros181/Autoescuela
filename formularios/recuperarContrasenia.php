@@ -2,17 +2,6 @@
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    
-
-/*
-   
-    if(isset($_POST["login"])){
-        header('Location: http://autoescueladaniels.com/formularios/login.php?');
-
-
-    }
-    */
-    
 }
 
 
@@ -35,9 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         
         <input type="submit" value="Enviar" name="enviar">
-
-<!--         <input type="submit" value="Login" name="login">
- -->        <a href="?menu=login">Login</a>
+      <a href="?menu=login">Login</a>
 
 
 
