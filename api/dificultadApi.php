@@ -3,7 +3,7 @@ header( "Access-Control-Allow-Origin: *" );
 require_once('../repositorio/db.php'); // Asegúrate de proporcionar la ruta correcta
 
 
-
+//Insertar
 if ($_SERVER['REQUEST_METHOD']=='POST')
 {
     // Verificar si los datos necesarios están presentes en la solicitud
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
 }
 
 
-
+//Leer
 elseif ($_SERVER['REQUEST_METHOD']=='GET')	
 {
     try {
@@ -82,7 +82,7 @@ elseif ($_SERVER['REQUEST_METHOD']=='GET')
 } 
 
 
-
+//Borrar
  elseif ($_SERVER['REQUEST_METHOD']=='DELETE')
 {
  // Obtener el ID de la dificultad a eliminar desde la URL
@@ -127,7 +127,7 @@ elseif ($_SERVER['REQUEST_METHOD']=='GET')
 
 
 
-
+//Actualizar
 elseif ($_SERVER['REQUEST_METHOD']=='PUT')
 {
     // Obtener datos del cuerpo de la solicitud
