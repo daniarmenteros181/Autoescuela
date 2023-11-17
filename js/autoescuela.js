@@ -1,5 +1,8 @@
 window.addEventListener("load", function () {    
     var btnComenzar = document.getElementById("comenzar");
+    var selc = document.getElementById("selc");
+    var tit = document.getElementById("tit");
+    var chec = document.getElementById("chec");
     var divExamen = document.getElementById("examen");
     var preguntas = [];
     var indicePreguntaActual = 0;
@@ -11,15 +14,24 @@ window.addEventListener("load", function () {
 
     btnComenzar.addEventListener("click", comenzar);
 
-    function comenzar() {
+    function comenzar(ev) {
+        ev.preventDefault();
         btnComenzar.style.display = "none";
+        selc.style.display = "none";
+        tit.style.display = "none";
+        chec.style.display = "none";
+        var seleccion = document.getElementById("chec");
+        var idExamen = seleccion.options[seleccion.selectedIndex].value;
+
+
+
         
         fetch("examen/plantilla/pregunta.html").then(x => x.text()).then(y => {
             var contenedor = document.createElement("div");
             contenedor.innerHTML = y;
             var pregunta = contenedor.querySelector(".pregunta");
     
-            fetch("http://automenu.com/examenApi.php?id_examen=121").then(x => x.json()).then(y => {
+            fetch("http://automenu.com/examenApi.php?id_examen="+idExamen).then(x => x.json()).then(y => {
 
 /*                 preguntas = y.examen[0].pregunta;
  */                
