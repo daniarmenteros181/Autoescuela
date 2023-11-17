@@ -72,7 +72,8 @@ window.addEventListener("load", function () {
             });
 
             
-            btnFinalizar.addEventListener("click", function () {
+            btnFinalizar.addEventListener("click", function (ev) {
+                ev.preventDefault();
                 crearJSONRespuestas();
             });
 
