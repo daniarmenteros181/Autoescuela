@@ -6,25 +6,19 @@ class crearPregunta{
 public static function llamada(){
 
     mostrarMenu::mostrarMenuAdmin();
-
-
-
-$nombreUsuario = sesion::leerSesion('nombreUsuario');
+    $nombreUsuario = sesion::leerSesion('nombreUsuario');
 
 
 if (funcionesLogin::estarLogeado()) {
-    // El usuario está logueado, muestra el contenido protegido aquí.
-/*    echo "¡Bienvenido, $nombreUsuario!";
- */   sesion::guardaSesion('nombreUsuario',$_SESSION["nombreUsuario"]=$nombreUsuario);
+
+    sesion::guardaSesion('nombreUsuario',$_SESSION["nombreUsuario"]=$nombreUsuario);
 
 } else {
-    // El usuario no está logueado, muestra un mensaje o redirige a la página de inicio de sesión.
     echo "mal, usuario!";
-   header('Location: http://autoescueladaniels.com/formularios/recuperarContrasenia.php?');
+    header('Location: ?menu=olvido');
 
 }
 
-// Puedes agregar más contenido y funcionalidad aquí que solo los usuarios logueados puedan ver.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (isset($_POST["crearPregunta"])) {

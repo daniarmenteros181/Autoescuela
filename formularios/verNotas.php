@@ -5,18 +5,15 @@ class verNotas{
 
 public static function llamada(){
 
-
-$nombreUsuario = sesion::leerSesion('nombreUsuario');
+    mostrarMenu::mostrarMenuAdmin();
+    $nombreUsuario = sesion::leerSesion('nombreUsuario');
 
 
 
 
 if (funcionesLogin::estarLogeado()) {
     // El usuario está logueado, muestra el contenido protegido aquí.
-   echo "¡Bienvenido, $nombreUsuario!";
-
-
-   //sesion::guardaSesion('nombreUsuario',funcionesLogin::crearUsuario());
+   echo "¡Bienvenido $nombreUsuario , esto es ver notas";
    sesion::guardaSesion('nombreUsuario',$_SESSION["nombreUsuario"]=$nombreUsuario);
 
 
@@ -54,22 +51,3 @@ verNotas::llamada();
 ?>
 
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Ver Notas</title>
-    <link rel="stylesheet" type="text/css" href="../estilos/estilosMenu.css">
-
-</head>
-<body>
-   
-    <form id="miFormulario" method="post" action="">
-        
-    
-    <input type="submit" value="out" name="out">
-
-    </form>
-
-
-</body>
-</html>

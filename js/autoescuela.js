@@ -55,14 +55,16 @@ window.addEventListener("load", function () {
 
             
             // Agregar eventos a los botones
-            btnAtras.addEventListener("click", function () {
+            btnAtras.addEventListener("click", function (ev) {
+                ev.preventDefault();
                 if (indicePreguntaActual > 0) {
                     indicePreguntaActual--;
                     mostrarPregunta(indicePreguntaActual);
                 }
             });
 
-            btnSiguiente.addEventListener("click", function () {
+            btnSiguiente.addEventListener("click", function (ev) {
+                ev.preventDefault();
                 if (indicePreguntaActual < preguntas.length - 1) {
                     indicePreguntaActual++;
                     mostrarPregunta(indicePreguntaActual);
@@ -111,19 +113,19 @@ window.addEventListener("load", function () {
         var pregDiv = preguntasDivs[indicePreguntaActual];
     
         pregDiv.getElementsByClassName("id")[0].innerHTML = (indicePreguntaActual + 1) + "- ";
-        //var id=pregActual.id;
         pregDiv.getElementsByClassName("enunciado")[0].innerHTML = pregActual.enunciado;
-        pregDiv.getElementsByClassName("url")[0].setAttribute("src", pregActual.url);
-        /* pregDiv.getElementsByClassName("res1")[0].innerHTML = pregActual.respuesta[0].res1;
-        pregDiv.getElementsByClassName("res2")[0].innerHTML = pregActual.respuesta[0].res2;
-        pregDiv.getElementsByClassName("res3")[0].innerHTML = pregActual.respuesta[0].res3; */
+        //Aqui habria que traer la img de la base de datos 
+       /*pregDiv.getElementsByClassName("url")[0].setAttribute("src", pregActual.url);*/        
         pregDiv.getElementsByClassName("res1")[0].innerHTML = pregActual.respuesta.res1;
         pregDiv.getElementsByClassName("res2")[0].innerHTML = pregActual.respuesta.res2;
         pregDiv.getElementsByClassName("res3")[0].innerHTML = pregActual.respuesta.res3;
 
 
-        pregDiv.getElementsByClassName("borrar")[0].onclick=function()
+        pregDiv.getElementsByClassName("borrar")[0].onclick=function(ev)
+
         {
+            ev.preventDefault();
+
             var auxPadre=this;
             while(!auxPadre.classList.contains("pregunta"))
                 auxPadre=auxPadre.parentNode;
@@ -134,7 +136,6 @@ window.addEventListener("load", function () {
             
         }
 
-        //marcaBotonPreg(indicePreguntaActual);
 
          agregarEventosRadioButtons(pregDiv, indicePreguntaActual);
         if (indicePreguntaActual < botonesPregunta.length) {
@@ -148,31 +149,19 @@ window.addEventListener("load", function () {
         for (var i = 0; i < preguntas.length; i++) {
             var btnPregunta = document.createElement("button");
             btnPregunta.innerHTML = i + 1;
-            btnPregunta.addEventListener("click", function () {
+            btnPregunta.addEventListener("click", function (ev) {
+                ev.preventDefault();
                 indicePreguntaActual = parseInt(this.innerHTML) - 1;
                 mostrarPregunta(indicePreguntaActual);
-                //console.log(indicePreguntaActual);
-                //marcaBotonPreg(indicePreguntaActual);
 
             });
             divExamen.appendChild(btnPregunta);
             botonesPregunta.push(btnPregunta);
         }
-         // Marcar el botón de la primera pregunta cuando se crean los botones
-        //marcaBotonPreg(0); 
     
     }
 
- /*    // Resalta el botón correspondiente a la pregunta actual
-   function marcaBotonPreg(indicePreguntaActual){
-    botonesPregunta.forEach(function (btn, btnIndex) {
-        if (btnIndex === indicePreguntaActual) {
-            btn.style.backgroundColor = 'lightblue'; // Cambia el color de fondo del botón activo
-        } else {
-            btn.style.backgroundColor = ''; // Restaura el color de fondo de los demás botones
-        }
-    });
-    }  */
+
 
   // Agregar eventos a los botones de radio
 function agregarEventosRadioButtons(pregDiv, indicePreguntaActual) {
@@ -226,7 +215,6 @@ function agregarEventosRadioButtons(pregDiv, indicePreguntaActual) {
 function crearJSONRespuestas() {
     var respuestasJSON = JSON.stringify(respuestas);
     console.log("Respuestas JSON:", respuestasJSON);
-    // Aquí puedes realizar acciones adicionales con el JSON, como enviarlo a un servidor.
 }
 
 });

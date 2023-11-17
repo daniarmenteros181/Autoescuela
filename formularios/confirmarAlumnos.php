@@ -16,17 +16,10 @@ public static function llamada(){
     
     
     
-    } else {
-        // El usuario no está logueado, muestra un mensaje o redirige a la página de inicio de sesión.
-        echo "mal, usuario!";
-    
+    } else {    
        header('Location: ?menu=olvido');
-       exit();
     
     }
-    
-    // Muestra la lista de usuarios sin rol asignado
-
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verifica si se ha enviado el formulario para asignar un rol
@@ -49,9 +42,7 @@ public static function llamada(){
     }
 
 
-}
-    
-    
+}  
 
     public static  function mostrarUsuariosSinRol() {
 
@@ -61,7 +52,9 @@ public static function llamada(){
             // Realizar una consulta para seleccionar los usuarios sin rol asignado
             $stmt = $conexion->query("SELECT * FROM usuario WHERE rol = '' ");
 
-            echo "<h2>Usuarios sin rol asignado:</h2>";
+            echo"<link rel='stylesheet' type='text/css' href='../estilos/estilosConfir.css'>";
+
+            echo "<h2 id='tit'>Usuarios sin rol asignado:</h2>";
             echo "<ul>";
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "<li id='lista'>" . $row['nombre'] . " <form method='post'>
@@ -84,7 +77,6 @@ public static function llamada(){
     }
 
     
-    
     public static function asignarRolAUsuario($usuarioId, $nuevoRol) {
         try {
             $conexion = db::entrar();
@@ -102,24 +94,5 @@ public static function llamada(){
 confirmarAlumnos::llamada();
 confirmarAlumnos::mostrarUsuariosSinRol();
 
-
-
-
 ?>
 
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Verificar</title>
-    <link rel="stylesheet" type="text/css" href="../estilos/estilosConfir.css">
-
-</head>
-<body>
-   
-    <form id="miFormulario" method="post" action="confirmarAlumnos.php?nombreUsuario=">
-    </form>
-
-
-</body>
-</html>

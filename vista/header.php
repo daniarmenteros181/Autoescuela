@@ -14,19 +14,13 @@ if(funcionesLogin::estarLogeado()){
     </head>
     <body>
     <header>
-<!--         <nav >
- -->       
+      
             <div id="seg">
                 <img src="./imagenes/olalla_logo.jpg" id="ola" alt="">
             </div>     
             <div id="primer">
                    
-                    <div id="deBtn">
-                        <div>
-                         <a href="?menu=inicio" class="btn">Cerrar Sesion </a>
-
-
-                        </div>               
+                    <div id="deBtn">              
                         <div>
                         <a href="?menu=inicio" class="btn">Inicio</a>
 
@@ -45,8 +39,7 @@ if(funcionesLogin::estarLogeado()){
 
             </div>   
                   
-<!--         </nav>     
- -->    </header>    
+    </header>    
     </body>
     </html>
  <?php
@@ -63,8 +56,7 @@ if(funcionesLogin::estarLogeado()){
     </head>
     <body>
     <header>
-<!--         <nav >
- -->        <div id="seg">
+       <div id="seg">
                 <img src="./imagenes/olalla_logo.jpg" id="ola" alt="">
             </div>
 
@@ -85,8 +77,7 @@ if(funcionesLogin::estarLogeado()){
             <div id="ter">
             </div> 
             
-<!--         </nav>
- -->    </header>
+    </header>
 
     </body>
     </html>

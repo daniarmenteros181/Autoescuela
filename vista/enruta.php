@@ -21,10 +21,7 @@
     }if ($_GET['menu'] == "admin") {
         require_once './formularios/adminMenu.php';
      
-    }if ($_GET['menu'] == "espera") {
-        require_once './formularios/espera.php';
-     
-    }if ($_GET['menu']=="notasVer"){
+    }if ($_GET['menu']=="verNotas"){
         require_once './formularios/verNotas.php';
 
     }if ($_GET['menu']=="notasVerExam"){
@@ -40,12 +37,9 @@
         require_once './formularios/confirmarAlumnos.php';
 
     } if ($_GET['menu']=="elegirExam"){
-        require_once './examen/index.html';
+        require_once './examen/index.php';
 
-     }   /* if ($_GET['menu']=="hacerExam"){
-        require_once './formularios/elegirExamAlum.php';
-
-     }  */if ($_GET['menu']=="adminExamen"){
+     }if ($_GET['menu']=="adminExamen"){
         require_once './formularios/administrarExamenes.php';
 
     }if ($_GET['menu']=="crearPreg"){
@@ -60,7 +54,7 @@
     }
     
 }else {
-    // Si no se proporciona el parámetro 'menu', carga la sección de "inicio" por defecto
+    // Si no se proporciona el parámetro 'menu', carga la sección de "inicio" por defecto, que es una imagen 
     require_once './formularios/inicio.php';
 }
 

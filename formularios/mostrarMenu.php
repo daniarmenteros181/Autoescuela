@@ -1,6 +1,9 @@
 <?php
 class mostrarMenu{
 
+//Clase con funciones estaticas para cuando se loguea alguien, muestre un menu dependiendo de quien se haya logueado
+
+//Menu de Administrador
      public static function mostrarMenuAdmin(){
         ?>
         <!DOCTYPE html>
@@ -13,13 +16,12 @@ class mostrarMenu{
         <form id="miFormulario" method="post" action="">
         <div class="menu">
             <ul>
-                <li><a href="verNotas.php">Ver Notas</a></li>
+                <li><a href="?menu=verNotas">Ver Notas</a></li>
                 <li class="dropdown">
                     <a href="?menu=crearExam">Crear Examen</a>
                     <div class="dropdown-content">
                         <a href="#">Aleatorio</a>
-                        <a href="#">Dificultad
-                            
+                        <a href="#">Dificultad                       
                         </a>
                         <div class="submenu">
                             <a href="#">Fácil</a>
@@ -34,37 +36,28 @@ class mostrarMenu{
                 <li><a href="?menu=leerPreg">Leer preguntas</a></li>
     
                 <li><input type="submit" class="cierre" value="Cerrar Sesion" name="out"></li>
-    
-            </ul>
-           
-    
-    
+            </ul>  
         </div>
-            
-    
-        </form>
-    
         </form>
     </body>
     </html>
     <?php
     } 
 
- 
-    public static function mostrarMenuAlumno(){
-        ?>
-        <!DOCTYPE html>
+    
+//Menu de alumno
+public static function mostrarMenuAlumno(){
+?>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Alumno</title>
+<title>Alumno</title>
 </head>
-<body>
-   
+<body> 
     <form id="miFormulario" method="post" action="">
         <div class="menu">
         <ul>
-            <li><a href="?menu=notasVer">Ver Resultados</a></li>
-            <li class="dropdown">
+           <li class="dropdown">
                 <a href="?menu=hacerExam">Hacer Examen</a>
                 <div class="dropdown-content">
                     <a href="#">Aleatorio</a>
@@ -79,22 +72,51 @@ class mostrarMenu{
                 </div>
             </li>
             <li><input type="submit" class="cierre" value="Cerrar Sesion" name="out"></li>
-
-
         </ul>
     </div>
-    
-
     </form>
-
-
 </body>
 </html>
-    <?php
-    }
+<?php
+}
 
 
-    
-    
+//Menu de profesor
+public static function mostrarMenuProfesor(){
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Profesor</title>
+</head>
+<body>
+   
+<form id="miFormulario" method="post" action="">
+        <div class="menu">
+            <ul>
+                <li class="dropdown">
+                    <a href="?menu=crearExam">Crear Examen</a>
+                    <div class="dropdown-content">
+                        <a href="#">Aleatorio</a>
+                        <a href="#">Dificultad                    
+                        </a>
+                        <div class="submenu">
+                            <a href="#">Fácil</a>
+                            <a href="#">Medio</a>
+                            <a href="#">Difícil</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="?menu=adminExamen">Administrar Exámenes</a></li>
+                <li><a href="?menu=crearPreg">Crear pregunta</a></li>
+                <li><a href="?menu=leerPreg">Leer preguntas</a></li>
+                <li><input type="submit" class="cierre" value="Cerrar Sesion" name="out"></li>
+            </ul>
+        </div>
+        </form>
+</body>
+</html>
+<?php
+} 
 
 }

@@ -4,9 +4,6 @@ class registro{
 
     public static function creacion(){
 
-
-        
-
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
             if (isset($_POST["crearCuenta"])) {
@@ -39,12 +36,7 @@ class registro{
                     echo "Por favor, complete todos los campos.";
                 }
         
-            }
-        
-            if(isset($_POST["inicio"])){
-                header('Location: http://autoescueladaniels.com/formularios/login.php?');
-                
-            }           
+            }          
             
         }
 

@@ -1,13 +1,3 @@
-<?php
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-}
-
-
-?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,12 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         <input type="submit" value="Enviar" name="enviar">
       <a href="?menu=login">Login</a>
-
-
-
-
-
-
         
     </form>
     </body>

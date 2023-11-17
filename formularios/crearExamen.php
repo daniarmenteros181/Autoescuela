@@ -13,12 +13,10 @@ if (funcionesLogin::estarLogeado()) {
     sesion::guardaSesion('nombreUsuario',$_SESSION["nombreUsuario"]=$nombreUsuario);
 
 } else {
-    // El usuario no está logueado, muestra un mensaje o redirige a la página de inicio de sesión.
-    echo "mal, usuario!";
-   header('Location: http://autoescueladaniels.com/formularios/recuperarContrasenia.php?');
+    header('Location: ?menu=olvido');
 
 }
-// Puedes agregar más contenido y funcionalidad aquí que solo los usuarios logueados puedan ver.
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["crearExamen"])) {
         // Obtén el id del usuario seleccionado del formulario
@@ -124,10 +122,6 @@ public static function leerPreguntaEnBaseDeDatos() {
                 echo "<p class='enunciado'>" . nl2br($pregunta['enunciado']) . "</p>";
                 echo "</div>";
             }
-
-           
-
-
             echo "</div>";
         } catch (PDOException $e) {
             echo "Error al leer las preguntas: " . $e->getMessage();

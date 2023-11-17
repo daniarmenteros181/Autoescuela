@@ -1,8 +1,39 @@
 <?php
 
 class ind{
-    public static function mostrarFormulario()
-    {
+
+    public static function mostrarFormulario(){
+
+
+    if (funcionesLogin::estarLogeado()) {
+        mostrarMenu::mostrarMenuAlumno();
+        ind::leerExamenes();
+        
+
+
+    } else {
+        // El usuario no está logueado, redirige a la página de inicio de recuperar contraseña.
+        header('Location: ?menu=olvido');
+
+    }
+    //Si se presiona el boton de out, cierra la sesion y te lleva al inicio
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // Verifica si se presionó el botón "borrar"
+    if (isset($_POST["out"])) {
+       
+       sesion::cierraSesion();
+       header('Location: ?menu=login');
+       
+    
+   }
+   }
+
+       
+    }
+
+    //Funcion para leer examenes 
+    public static function leerExamenes(){
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             // Obtener la conexión a la base de datos utilizando la clase db
             $conexion = db::entrar();
@@ -26,9 +57,11 @@ class ind{
             // Método no permitido
             echo 'Método no permitido.';
         }
+
     }
 
-    private static function generarFormulario($examenes)
+    //Funcion que genera formulario 
+    public static function generarFormulario($examenes)
     {
         ?>
         <!DOCTYPE html>
@@ -41,11 +74,11 @@ class ind{
 
         </head>
         <body>
-            <h1 id="tit">Selecciona un Examen</h1>
+            <h1 id="tit">Seleccion de Examen</h1>
             <form id="formularioExamenes">
             <div id="examen"></div>
 
-                <label id="selc"for="examen">Seleccione un examen:</label>
+                <label id="selc">Seleccione un examen:</label>
                 <select id="chec"  name="examen" required>
                     <?php foreach ($examenes as $examen) : ?>
                         <option  value="<?= $examen['id'] ?>">
