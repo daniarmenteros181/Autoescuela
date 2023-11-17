@@ -75,10 +75,6 @@ if(funcionesLogin::estarLogeado()){
                         <a href="?menu=login" class="btn">Login </a>
 
                         </div>
-                        <!-- <div>
-                        <a href="?menu=registro" class="btn">Registrarse</a>
-
-                        </div> -->
                         <div>
                         <a href="?menu=inicio" class="btn">Inicio</a>
 

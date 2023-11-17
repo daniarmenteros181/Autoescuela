@@ -64,14 +64,14 @@ public static function llamada(){
             echo "<h2>Usuarios sin rol asignado:</h2>";
             echo "<ul>";
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<li>" . $row['nombre'] . " <form method='post'>
+                echo "<li id='lista'>" . $row['nombre'] . " <form method='post'>
                     <input type='hidden' name='usuarioId' value='{$row['id']}'>
                     <select name='nuevoRol'>
                         <option value='admin'>Admin</option>
                         <option value='profesor'>Profesor</option>
                         <option value='alumno'>Alumno</option>
                     </select>
-                    <input type='submit' name='asignarRol' value='Asignar Rol'>
+                    <input type='submit' id='asig' name='asignarRol' value='Asignar Rol'>
                 </form></li>";
             }
             echo "</ul>";
@@ -112,7 +112,7 @@ confirmarAlumnos::mostrarUsuariosSinRol();
 <html>
 <head>
     <title>Verificar</title>
-    <link rel="stylesheet" type="text/css" href="../estilos/estilosMenu.css">
+    <link rel="stylesheet" type="text/css" href="../estilos/estilosConfir.css">
 
 </head>
 <body>

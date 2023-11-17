@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } 
 
 
-   elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
+   /* elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_GET['id_examen'])) {
         $idExamen = intval($_GET['id_examen']);
         try {
@@ -104,9 +104,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 } 
- 
+  */
 
- /*  if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+   if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // Obtener la conexión a la base de datos utilizando la clase db
     $conexion = db::entrar();
 
@@ -131,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Método no permitido
     header('HTTP/1.0 405 Method Not Allowed');
     echo json_encode(['error' => 'Método no permitido']);
-}   */
+}   
 
 
 elseif ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
